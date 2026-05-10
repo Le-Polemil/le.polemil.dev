@@ -1,8 +1,33 @@
-/* === Animatable color via @property — enables smooth interpolation between pages === */
+/* === Animatable colors via @property — enables smooth interpolation between pages === */
 @property --accent {
   syntax: '<color>';
   inherits: true;
   initial-value: #534ab7;
+}
+@property --accent-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --accent-bg-hover {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --accent-fg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #534ab7;
+}
+@property --accent-fg-on-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #1f1b14;
+}
+@property --accent-border {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
 }
 
 /* === Light mode (default) === */
@@ -144,6 +169,18 @@ body[data-page='timeline'] {
 /* Foundations: no accent — neutral identity */
 body[data-page^='foundations'] {
   --accent: var(--fg-primary);
+}
+
+/* === Derived accent surfaces — interpolated via color-mix(in oklch) ===
+   Components consume *only* these derived vars (cf. docs/02-ux-spec.md §2.4).
+   Mixing in oklch keeps the hue perceptually stable across themes; the
+   --bg-app / --fg-primary anchors swap automatically with light/dark. */
+:root {
+  --accent-bg: color-mix(in oklch, var(--accent) 12%, var(--bg-app));
+  --accent-bg-hover: color-mix(in oklch, var(--accent) 18%, var(--bg-app));
+  --accent-fg: var(--accent);
+  --accent-fg-on-bg: color-mix(in oklch, var(--accent) 80%, var(--fg-primary));
+  --accent-border: color-mix(in oklch, var(--accent) 40%, transparent);
 }
 
 /* === Spacing (4-base scale) === */
