@@ -115,7 +115,7 @@ When no ticket is linked to the PR:
    - What's optional to improve (nits).
 
 5. **Move the ticket** _(skip in code-only mode)_:
-   - → **"Review"** if **no blocking issues** and **all acceptance criteria met**.
+   - → **"To review (Human)"** if **no blocking issues** and **all acceptance criteria met**.
    - → **"To fix"** if **at least one blocking issue** or **any acceptance criteria not met**.
 
 6. **Submit the PR review** as "Approve" or "Request Changes" accordingly.

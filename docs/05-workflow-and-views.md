@@ -18,17 +18,28 @@
 
 ## 2. Statuts (cycle de vie d'un ticket)
 
-Le champ Status du Project est configuré avec 5 options :
+Le champ Status du Project est configuré avec 7 options, calé sur le workflow Colibri :
 
 | Statut | Quand on y est | Action `/develop` |
 |---|---|---|
 | `Backlog` | Ticket créé mais pas encore prêt à être développé | Ignoré |
-| `Ready` | Ticket prêt à être pické (dépendances résolues, AC clairs) | **Pické** par `/develop` |
-| `In progress` | Quelqu'un développe le ticket | Ignoré |
-| `Review` | PR ouverte, attente review | Ignoré |
-| `Done` | PR merge, déployé en prod | Ignoré |
+| `Ready` | Ticket prêt à être pické (dépendances résolues, AC clairs) | **Pické** par Subagent 1 (@developer) |
+| `In progress` | @developer code la feature/fix sur sa branche | Subagent 1 actif |
+| `To review (AI)` | PR poussée, en attente de la review AI lead-dev | Subagent 2 (@lead-dev) la pickera |
+| `To review (Human)` | AI review OK, en attente d'un dernier coup d'œil humain | Tu valides + merge |
+| `To fix` | Review (AI ou humaine) a rejeté la PR : besoin de retravailler | Re-pické par `/develop` éventuellement |
+| `Done` | PR merge, déployé en prod | Terminal |
 
 Au démarrage du projet : tous les tickets sont en `Backlog` sauf **#1** (`chore: finalize project bootstrap`) en `Ready`.
+
+**Workflow visuel** :
+```
+Backlog → Ready ─→ In progress ─→ To review (AI) ─→ To review (Human) ─→ Done
+                                      ↓ rejected         ↓ rejected
+                                      └──────→ To fix ←──┘
+                                                  ↓
+                                                  └→ retour à Ready
+```
 
 ---
 
@@ -105,12 +116,14 @@ gh project item-edit \
   --single-select-option-id 711cb195
 ```
 
-Option IDs du field Status (mémo) :
-- Backlog : `037003b8`
-- Ready : `4eefccd4`
-- In progress : `711cb195`
-- Review : `b2c8a052`
-- Done : `2d3b43ff`
+Option IDs du field Status (mémo, valables tant qu'on ne re-mute pas le field) :
+- Backlog : `fd0c4deb`
+- Ready : `63a40a0f`
+- In progress : `3c5ddf2a`
+- To review (AI) : `09223ec2`
+- To review (Human) : `1c9d2d26`
+- To fix : `8a1f5b79`
+- Done : `274ef618`
 
 Un helper `scripts/next-ticket.sh` est fourni à la racine pour la lecture rapide.
 

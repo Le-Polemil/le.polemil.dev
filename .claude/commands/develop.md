@@ -4,11 +4,11 @@
 
 - **Repo** : `Le-Polemil/le.polemil.dev`
 - **GitHub Project** : https://github.com/users/Le-Polemil/projects/6 (number `6`, owner `Le-Polemil`)
-- **Status column workflow** : `Backlog` → `Ready` → `In progress` → `Review` → (`To fix` ↩) → `Done`
+- **Status column workflow** : `Backlog` → `Ready` → `In progress` → `To review (AI)` → `To review (Human)` → (`To fix` ↩) → `Done`
 - **Custom fields** : `Phase` (Phase 1 / Phase 2), `Estimate` (S / M / L), `Area`, `Time Used` (number), `Agent Count` (number)
 - **Project ID (GraphQL)** : `PVT_kwHOAacMWs4BXS8v`
 - **Status field ID** : `PVTSSF_lAHOAacMWs4BXS8vzhSguO0`
-- **Status option IDs** : Backlog=`d81766bc`, Ready=`ccb5f5b7`, In progress=`848b6309`, Review=`f6b4e621`, To fix=`c3106430`, Done=`cd9d6fa6`
+- **Status option IDs** : Backlog=`fd0c4deb`, Ready=`63a40a0f`, In progress=`3c5ddf2a`, To review (AI)=`09223ec2`, To review (Human)=`1c9d2d26`, To fix=`8a1f5b79`, Done=`274ef618`
 - **Helper** : `./scripts/next-ticket.sh` retourne le prochain ticket Ready
 
 ## Context
@@ -168,7 +168,7 @@ If **Subagent 1 fails or is interrupted** at any point:
 
 10. **Commit, push, and open a PR** with a clear title and description referencing the ticket. Include acceptance criteria in the PR description for the reviewer.
 
-11. **Move the ticket** to the **"Review"** column on the project board.
+11. **Move the ticket** to the **"To review (AI)"** column on the project board.
 
 12. **Comment on the ticket** with any difficulties or open questions encountered during development.
 
