@@ -5,10 +5,24 @@ import '@/styles/global.css';
 interface Props {
   title: string;
   description?: string;
-  page?: 'experience' | 'project' | 'skill' | 'contact' | 'about' | 'timeline' | 'foundations-colors' | 'foundations-typography' | 'foundations-spacing' | 'foundations-motion';
+  page?:
+    | 'experience'
+    | 'project'
+    | 'skill'
+    | 'contact'
+    | 'about'
+    | 'timeline'
+    | 'foundations-colors'
+    | 'foundations-typography'
+    | 'foundations-spacing'
+    | 'foundations-motion';
 }
 
-const { title, description = "CV de Paul-Émile Moreau — front-end engineer + design systems.", page } = Astro.props;
+const {
+  title,
+  description = 'CV de Paul-Émile Moreau — front-end engineer + design systems.',
+  page,
+} = Astro.props;
 ---
 
 <!doctype html>

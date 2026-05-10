@@ -1,5 +1,5 @@
-import { atom } from 'nanostores';
 import type { Lang } from '@/lib/i18n';
+import { atom } from 'nanostores';
 
 export const lang = atom<Lang>('fr');
 

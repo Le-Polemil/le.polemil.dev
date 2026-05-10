@@ -6,14 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignore": [
-      "dist",
-      ".astro",
-      "node_modules",
-      "playwright-report",
-      "test-results",
-      "public"
-    ]
+    "ignore": ["dist", ".astro", "node_modules", "playwright-report", "test-results", "public"]
   },
   "formatter": {
     "enabled": true,
@@ -75,7 +68,8 @@
             "useImportType": "off"
           },
           "correctness": {
-            "noUnusedVariables": "off"
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
           }
         }
       }

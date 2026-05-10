@@ -123,14 +123,28 @@
 :root {
   --accent: var(--accent-default);
 }
-body[data-page='experience'] { --accent: var(--accent-experience); }
-body[data-page='project']    { --accent: var(--accent-project); }
-body[data-page='skill']      { --accent: var(--accent-skill); }
-body[data-page='contact']    { --accent: var(--accent-contact); }
-body[data-page='about']      { --accent: var(--accent-about); }
-body[data-page='timeline']   { --accent: var(--accent-timeline); }
+body[data-page='experience'] {
+  --accent: var(--accent-experience);
+}
+body[data-page='project'] {
+  --accent: var(--accent-project);
+}
+body[data-page='skill'] {
+  --accent: var(--accent-skill);
+}
+body[data-page='contact'] {
+  --accent: var(--accent-contact);
+}
+body[data-page='about'] {
+  --accent: var(--accent-about);
+}
+body[data-page='timeline'] {
+  --accent: var(--accent-timeline);
+}
 /* Foundations: no accent — neutral identity */
-body[data-page^='foundations'] { --accent: var(--fg-primary); }
+body[data-page^='foundations'] {
+  --accent: var(--fg-primary);
+}
 
 /* === Spacing (4-base scale) === */
 :root {
@@ -174,10 +188,8 @@ body[data-page^='foundations'] { --accent: var(--fg-primary); }
 
 /* === Typography === */
 :root {
-  --font-sans:
-    'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono:
-    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
   --font-display: 'Bukhari Script', 'Pacifico', cursive;
 
   --text-2xs: 10px;
