@@ -1,0 +1,62 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  page?: 'experience' | 'project' | 'skill' | 'contact' | 'about' | 'timeline' | 'foundations-colors' | 'foundations-typography' | 'foundations-spacing' | 'foundations-motion';
+}
+
+const { title, description = "CV de Paul-Émile Moreau — front-end engineer + design systems.", page } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr" data-lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <ClientRouter />
+    <!-- Theme + lang init: read localStorage before paint to avoid flash -->
+    <script is:inline>
+      (() => {
+        try {
+          const theme = localStorage.getItem('theme');
+          if (theme === 'dark' || theme === 'light') {
+            document.documentElement.dataset.theme = theme;
+          }
+          const lang = localStorage.getItem('lang');
+          if (lang === 'en' || lang === 'fr') {
+            document.documentElement.dataset.lang = lang;
+          }
+        } catch (_) {
+          /* localStorage unavailable — defaults already in HTML */
+        }
+      })();
+    </script>
+  </head>
+  <body data-page={page}>
+    <a class="app-skip-link" href="#main">Aller au contenu</a>
+
+    <!-- TODO: <Header /> instance — to be added via tickets phase 1 -->
+    <!-- TODO: 3-column body — sidebar / main / inspect -->
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <!-- TODO: scripts pour theme/lang stores nanostores — phase 1 -->
+  </body>
+</html>
+
+<style>
+  body {
+    display: grid;
+    grid-template-rows: var(--size-header) 1fr;
+    min-block-size: 100dvb;
+  }
+</style>

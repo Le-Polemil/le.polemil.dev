@@ -1,0 +1,203 @@
+/* === Animatable color via @property — enables smooth interpolation between pages === */
+@property --accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #534ab7;
+}
+
+/* === Light mode (default) === */
+:root,
+:root[data-theme='light'] {
+  /* Background */
+  --bg-canvas: #f8f4ec;
+  --bg-app: #fbf8f2;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f1ece2;
+  --bg-inset: #ebe5d8;
+
+  /* Border */
+  --border-subtle: #e5decf;
+  --border-default: #d6cdb9;
+  --border-strong: #b6ab91;
+
+  /* Foreground */
+  --fg-primary: #1f1b14;
+  --fg-secondary: #52493a;
+  --fg-tertiary: #8b816e;
+  --fg-on-accent: #ffffff;
+
+  /* Status */
+  --status-success-bg: #e1f5ee;
+  --status-success-fg: #085041;
+  --status-warning-bg: #fbefd3;
+  --status-warning-fg: #6b4a0a;
+  --status-danger-bg: #fbe3e3;
+  --status-danger-fg: #8c2222;
+  --status-info-bg: #dceefb;
+  --status-info-fg: #0e4d7a;
+
+  /* Per-page accents (LIGHT) */
+  --accent-default: #534ab7;
+  --accent-experience: #534ab7;
+  --accent-project: #e89a4b;
+  --accent-skill: #5a8e2e;
+  --accent-contact: #1e78b4;
+  --accent-about: #c44a6b;
+  --accent-timeline: #7a4fb7;
+}
+
+/* === Dark mode — explicit attribute === */
+:root[data-theme='dark'] {
+  --bg-canvas: #0f0f11;
+  --bg-app: #141417;
+  --bg-surface: #1a1a1e;
+  --bg-subtle: #22222a;
+  --bg-inset: #0a0a0c;
+
+  --border-subtle: #2a2a33;
+  --border-default: #3a3a45;
+  --border-strong: #5a5a6a;
+
+  --fg-primary: #f2efe6;
+  --fg-secondary: #b8b2a3;
+  --fg-tertiary: #7b7768;
+  --fg-on-accent: #0f0f11;
+
+  --status-success-bg: #0f2f26;
+  --status-success-fg: #9fe5cc;
+  --status-warning-bg: #3a2d0e;
+  --status-warning-fg: #f5d88a;
+  --status-danger-bg: #3a1414;
+  --status-danger-fg: #f4a6a6;
+  --status-info-bg: #0e2c3d;
+  --status-info-fg: #9bd1f0;
+
+  /* Per-page accents (DARK) */
+  --accent-default: #8e83f1;
+  --accent-experience: #8e83f1;
+  --accent-project: #fdba74;
+  --accent-skill: #aecc8a;
+  --accent-contact: #6fc5ff;
+  --accent-about: #f08aa0;
+  --accent-timeline: #b79cf1;
+}
+
+/* === System dark fallback if user hasn't picked === */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg-canvas: #0f0f11;
+    --bg-app: #141417;
+    --bg-surface: #1a1a1e;
+    --bg-subtle: #22222a;
+    --bg-inset: #0a0a0c;
+
+    --border-subtle: #2a2a33;
+    --border-default: #3a3a45;
+    --border-strong: #5a5a6a;
+
+    --fg-primary: #f2efe6;
+    --fg-secondary: #b8b2a3;
+    --fg-tertiary: #7b7768;
+    --fg-on-accent: #0f0f11;
+
+    --status-success-bg: #0f2f26;
+    --status-success-fg: #9fe5cc;
+    --status-warning-bg: #3a2d0e;
+    --status-warning-fg: #f5d88a;
+    --status-danger-bg: #3a1414;
+    --status-danger-fg: #f4a6a6;
+    --status-info-bg: #0e2c3d;
+    --status-info-fg: #9bd1f0;
+
+    --accent-default: #8e83f1;
+    --accent-experience: #8e83f1;
+    --accent-project: #fdba74;
+    --accent-skill: #aecc8a;
+    --accent-contact: #6fc5ff;
+    --accent-about: #f08aa0;
+    --accent-timeline: #b79cf1;
+  }
+}
+
+/* === Per-page accent — set on <body data-page="..."> === */
+:root {
+  --accent: var(--accent-default);
+}
+body[data-page='experience'] { --accent: var(--accent-experience); }
+body[data-page='project']    { --accent: var(--accent-project); }
+body[data-page='skill']      { --accent: var(--accent-skill); }
+body[data-page='contact']    { --accent: var(--accent-contact); }
+body[data-page='about']      { --accent: var(--accent-about); }
+body[data-page='timeline']   { --accent: var(--accent-timeline); }
+/* Foundations: no accent — neutral identity */
+body[data-page^='foundations'] { --accent: var(--fg-primary); }
+
+/* === Spacing (4-base scale) === */
+:root {
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+}
+
+/* === Radius === */
+:root {
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+}
+
+/* === Sizing (key dimensions) === */
+:root {
+  --size-icon-sm: 14px;
+  --size-icon-md: 16px;
+  --size-icon-lg: 20px;
+  --size-control-sm: 28px;
+  --size-control-md: 36px;
+  --size-control-lg: 44px;
+  --size-header: 48px;
+  --size-sidebar: 220px;
+  --size-inspect: 280px;
+  --size-center-max: 720px;
+}
+
+/* === Typography === */
+:root {
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:
+    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  --font-display: 'Bukhari Script', 'Pacifico', cursive;
+
+  --text-2xs: 10px;
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 28px;
+  --text-2xl: 40px;
+}
+
+/* === Motion === */
+:root {
+  --duration-xs: 80ms;
+  --duration-sm: 140ms;
+  --duration-md: 220ms;
+  --duration-lg: 360ms;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

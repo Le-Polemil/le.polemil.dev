@@ -1,0 +1,52 @@
+html {
+  background: var(--bg-canvas);
+  color: var(--fg-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--bg-canvas);
+}
+
+/* Smooth color transitions across theme + page switches */
+html,
+body {
+  transition:
+    background-color var(--duration-lg) var(--ease-out),
+    color var(--duration-lg) var(--ease-out);
+}
+
+/* Skip link — visible on focus only */
+.app-skip-link {
+  position: absolute;
+  inset-block-start: var(--space-2);
+  inset-inline-start: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-app);
+  color: var(--fg-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  z-index: 100;
+  transform: translateY(-200%);
+  transition: transform var(--duration-sm) var(--ease-out);
+}
+
+.app-skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* i18n runtime swap — hides the inactive language */
+:root[data-lang='fr'] [lang='en'],
+:root[data-lang='en'] [lang='fr'] {
+  display: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--fg-on-accent);
+}
