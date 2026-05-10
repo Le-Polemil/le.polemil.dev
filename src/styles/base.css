@@ -14,9 +14,8 @@ body {
 /* Smooth color transitions across theme + page switches */
 html,
 body {
-  transition:
-    background-color var(--duration-lg) var(--ease-out),
-    color var(--duration-lg) var(--ease-out);
+  transition: background-color var(--duration-lg) var(--ease-out), color var(--duration-lg)
+    var(--ease-out);
 }
 
 /* Skip link — visible on focus only */

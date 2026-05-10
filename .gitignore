@@ -2,6 +2,7 @@ node_modules/
 dist/
 .astro/
 .cache/
+.worktrees/
 .env
 .env.*
 !.env.example
@@ -13,3 +14,8 @@ test-results/
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
+
+# Claude Code runtime + local merge-tool workfiles
+.claude/scheduled_tasks.lock
+.commit
+.notes

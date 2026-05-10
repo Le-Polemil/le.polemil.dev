@@ -6,12 +6,17 @@ Stack : Astro 5+ · TypeScript strict · CSS pur (cascade layers + scoped Astro)
 
 ## Démarrer en local
 
+Prérequis : Node 22 (cf. `.nvmrc`) et pnpm 9.
+
 ```bash
 pnpm install
+pnpm exec playwright install --with-deps chromium  # une fois, pour les tests
 pnpm dev
 ```
 
 Ouvre `http://localhost:4321`.
+
+`pnpm install` installe aussi le hook `pre-commit` (lint + type-check) via `simple-git-hooks`.
 
 ## Scripts
 
