@@ -5,17 +5,32 @@ html {
   font-size: var(--text-base);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  /* Single named target for ViewTransitions — crossfade between Astro routes */
+  view-transition-name: root;
 }
 
 body {
   background: var(--bg-canvas);
 }
 
-/* Smooth color transitions across theme + page switches */
+/* Smooth color transitions across theme + page switches.
+   --accent is registered (@property in tokens.css), so its value
+   interpolates per-page like background-color / color do. */
 html,
 body {
   transition: background-color var(--duration-lg) var(--ease-out), color var(--duration-lg)
-    var(--ease-out);
+    var(--ease-out), --accent var(--duration-lg) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    transition: none;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }
 
 /* Skip link — visible on focus only */
