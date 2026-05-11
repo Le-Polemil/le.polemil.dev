@@ -156,7 +156,18 @@ Tracking : `-0.01em` sur tout sauf mono (`0`).
 `--radius-xs: 2px`, `--radius-sm: 4px`, `--radius-md: 6px`, `--radius-lg: 10px`, `--radius-xl: 16px`, `--radius-full: 9999px`.
 
 ### 4.3 Borders
-`--border-thin: 0.5px` (Retina), `--border-default: 1px`, `--border-strong: 2px` (focus rings).
+
+Naming convention : les couleurs portent un **label** (`--border-<label>`), les épaisseurs portent un **numéro** (`--border-<number>`). Les deux espaces de noms sont disjoints, pas de collision.
+
+**Couleurs** (cf. §2.2-2.3) : `--border-subtle`, `--border-default`, `--border-strong`.
+
+**Épaisseurs** :
+- `--border-0: 0` — no border.
+- `--border-0_5: 0.5px` — hairline (~1 device pixel sur Retina, peut disparaître sur écrans non-Retina ; assumé pour la densité visuelle §1.4).
+- `--border-1: 1px` — défaut.
+- `--border-2: 2px` — focus rings, appui.
+
+Usage : `border: var(--border-1) solid var(--border-default);`.
 
 ### 4.4 Shadows
 `--shadow-1: 0 1px 0 0 var(--border-subtle)` (séparateur subtil)
