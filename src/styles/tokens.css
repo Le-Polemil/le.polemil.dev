@@ -183,6 +183,18 @@ body[data-page^='foundations'] {
   --accent-border: color-mix(in oklch, var(--accent) 40%, transparent);
 }
 
+/* === Border widths — numeric scale (paired with --border-<label> colors) ===
+   Naming convention :
+   - `--border-<label>` (subtle/default/strong) → couleur, cf. blocs `:root[data-theme]` ci-dessus.
+   - `--border-<number>` → épaisseur. Disjoints, pas de collision.
+   See docs/02-ux-spec.md §4.3. */
+:root {
+  --border-0: 0;
+  --border-0_5: 0.5px;
+  --border-1: 1px;
+  --border-2: 2px;
+}
+
 /* === Spacing (4-base scale) === */
 :root {
   --space-0: 0;

@@ -17,5 +17,6 @@ test-results/
 
 # Claude Code runtime + local merge-tool workfiles
 .claude/scheduled_tasks.lock
+.claude/settings.local.json
 .commit
 .notes
