@@ -1,0 +1,14 @@
+{
+  "name": "Paul-Émile Moreau",
+  "role": "Front-end engineer + design systems",
+  "baseline": "A résumé presented as the documentation of a design system.",
+  "nav_foundations": "Foundations",
+  "nav_components": "Components",
+  "nav_patterns": "Patterns",
+  "lang_label": "Language",
+  "theme_dark": "Switch to dark theme",
+  "theme_light": "Switch to light theme",
+  "skip_to_content": "Skip to content",
+  "view_more": "View more",
+  "back_to_top": "Back to top"
+}
