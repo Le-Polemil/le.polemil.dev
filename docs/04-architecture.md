@@ -374,8 +374,22 @@ EXPOSE 80
 
 ### 8.3 Branches → URLs
 - `main` → `https://polemil.dev` (prod)
+- `main` (artifacts Storybook) → `https://sb.polemil.dev` (verif visuelle des tokens / primitives / components / patterns)
 - Branches feature → URLs preview Coolify si supporté par le plan, sinon previews via build local + tunnel ngrok pour share
 - Pas de staging dédié au MVP — la coverage tests + Lighthouse sur PR limite le besoin
+
+#### Storybook deploy (sb.polemil.dev)
+- App Coolify séparée, même pattern Dockerfile + `nginx:alpine`
+- `Dockerfile.storybook` à la racine du repo : build `pnpm build-storybook` → `storybook-static/` → servi via `nginx.storybook.conf`
+- nginx config : SPA fallback `try_files $uri $uri/ /index.html` (Storybook gère son routing client-side)
+- TLS : Let's Encrypt auto via Coolify
+- Webhook : même `deploy.yml` (à étendre) ou un webhook Coolify dédié à `chore/27-storybook-coolify`
+- Coolify config (manuelle, à faire dans l'UI Coolify) :
+  - Type : **Dockerfile**
+  - Build context : racine du repo
+  - Dockerfile : `Dockerfile.storybook`
+  - Domain : `sb.polemil.dev`
+  - Webhook URL : à connecter à GitHub Actions sur push `main`
 
 ### 8.4 Variables d'environnement
 - `PUBLIC_BEKOFFICE_API_URL` — endpoint `bo2.polemil.dev/api`
