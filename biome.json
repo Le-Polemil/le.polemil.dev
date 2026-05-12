@@ -6,7 +6,15 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignore": ["dist", ".astro", "node_modules", "playwright-report", "test-results", "public"]
+    "ignore": [
+      "dist",
+      "storybook-static",
+      ".astro",
+      "node_modules",
+      "playwright-report",
+      "test-results",
+      "public"
+    ]
   },
   "formatter": {
     "enabled": true,

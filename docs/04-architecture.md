@@ -139,6 +139,7 @@ le.polemil.dev/
 - Nom = nom Figma exact (PascalCase, anglais)
 - Une seule entité par fichier ; pas de `index.ts` agrégateur dans les dossiers `components/*` (on importe par chemin direct)
 - Props typées par interface dans le même fichier ; nommées `<ComponentName>Props`
+- **Story Storybook obligatoire** à côté du source (`<Name>.stories.tsx`) pour tout composant Phase 1+. La PR qui ajoute le composant ajoute aussi la story dans le même commit. La story couvre au minimum un cas par variant et un cas par état (active/inactive, light/dark via toolbar). Cf. `.storybook/` pour la config et les décorateurs (theme + page accent).
 
 ### 3.3 Classes CSS
 - BEM-allégé dans les `<style>` Astro scoped : `.card`, `.card__title`, `.card--current`
