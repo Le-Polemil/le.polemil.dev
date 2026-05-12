@@ -1,3 +1,13 @@
+/* === Webfonts — Bukhari Script for the wordmark only (cf. UX spec §1.2).
+   Self-hosted TTF in public/fonts/ ; woff2 conversion is a perf TODO. */
+@font-face {
+  font-family: 'Bukhari Script';
+  src: url('/fonts/Bukhari-Script.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* === Animatable colors via @property — enables smooth interpolation between pages === */
 @property --accent {
   syntax: '<color>';

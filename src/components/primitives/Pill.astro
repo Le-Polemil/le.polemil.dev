@@ -1,0 +1,47 @@
+---
+interface Props {
+  options: readonly [string, string];
+  current?: string;
+  label: string;
+}
+
+const { options, current, label } = Astro.props;
+---
+
+<div class="pill" role="group" aria-label={label}>
+  {
+    options.map((opt) => (
+      <span class="pill-option" data-active={opt === current ? 'true' : 'false'}>
+        {opt}
+      </span>
+    ))
+  }
+</div>
+
+<style>
+  .pill {
+    display: inline-flex;
+    border: var(--border-1) solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    block-size: var(--size-control-sm);
+    align-items: stretch;
+  }
+
+  .pill-option {
+    display: inline-flex;
+    align-items: center;
+    padding-inline: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    line-height: 1;
+    color: var(--fg-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pill-option[data-active='true'] {
+    background: var(--bg-subtle);
+    color: var(--fg-primary);
+  }
+</style>

@@ -1,0 +1,137 @@
+---
+import Pill from '@/components/primitives/Pill.astro';
+import ThemeToggle from '@/components/primitives/ThemeToggle.tsx';
+import '@/components/primitives/ThemeToggle.css';
+import { SITE_VERSION } from '@/data/meta';
+import { PanelRight } from 'lucide-react';
+---
+
+<div class="header-inner">
+  <a href="/" class="wordmark" aria-label="polemil.dev — accueil">
+    <span class="wordmark-text">Polémil</span><span class="wordmark-dot" aria-hidden="true">.</span>
+  </a>
+
+  <nav class="header-actions" aria-label="Contrôles globaux">
+    <a href="#changelog" class="version-badge" aria-label={`Version ${SITE_VERSION} — voir le changelog`}>
+      v{SITE_VERSION}
+    </a>
+    <Pill options={['FR', 'EN'] as const} current="FR" label="Langue" />
+    <ThemeToggle client:idle />
+    <button type="button" class="inspect-toggle" data-inspect-toggle aria-label="Afficher le panneau Inspect">
+      <PanelRight size={14} aria-hidden="true" />
+    </button>
+  </nav>
+</div>
+
+<script>
+  // Inspect toggle wiring — flips body[data-inspect-open], CSS in DocLayout
+  // does the rest. Visible on tablet only (cf. DocLayout media queries).
+  document.querySelectorAll<HTMLButtonElement>('[data-inspect-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const open = document.body.dataset.inspectOpen === 'true';
+      document.body.dataset.inspectOpen = open ? 'false' : 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    });
+  });
+</script>
+
+<style>
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    block-size: 100%;
+    padding-inline: var(--space-4);
+  }
+
+  /* === Wordmark — Bukhari Script + accent dot + sliding underline === */
+  .wordmark {
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    text-decoration: none;
+    color: var(--fg-primary);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    line-height: 1;
+    padding-block-end: var(--space-1);
+  }
+
+  .wordmark-dot {
+    color: var(--accent);
+    margin-inline-start: 0.05em;
+  }
+
+  /* Sliding underline on hover — grows left → right under "Polémil". */
+  .wordmark::after {
+    content: '';
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    inline-size: 0;
+    block-size: var(--border-2);
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    transition: inline-size var(--duration-md) var(--ease-out);
+  }
+
+  .wordmark:hover::after,
+  .wordmark:focus-visible::after {
+    inline-size: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wordmark::after {
+      transition: none;
+    }
+  }
+
+  /* === Right cluster: version badge / lang / theme / inspect === */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .version-badge {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-2);
+    border: var(--border-1) solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--fg-secondary);
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .version-badge:hover {
+    color: var(--fg-primary);
+    border-color: var(--border-default);
+  }
+
+  /* Inspect toggle — only visible on tablet (cf. DocLayout layout) */
+  .inspect-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--size-control-sm);
+    block-size: var(--size-control-sm);
+    background: transparent;
+    border: var(--border-1) solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--fg-secondary);
+    cursor: pointer;
+  }
+
+  .inspect-toggle:hover {
+    color: var(--fg-primary);
+    border-color: var(--border-default);
+  }
+
+  @media (max-width: 1023px) and (min-width: 768px) {
+    .inspect-toggle {
+      display: inline-flex;
+    }
+  }
+</style>
