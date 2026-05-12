@@ -30,6 +30,8 @@ Ouvre `http://localhost:4321`.
 - `pnpm test:ui` — Playwright UI mode
 - `pnpm test:a11y` — axe-core a11y uniquement
 - `pnpm lh` — Lighthouse CI local
+- `pnpm storybook` — Storybook en local sur `http://localhost:6006` (atlas visuel des tokens / primitives / components / patterns)
+- `pnpm build-storybook` — build statique de Storybook dans `storybook-static/`
 
 ## Architecture
 
@@ -50,6 +52,11 @@ Patterns (ExperiencePreview, Timeline)
    ↓
 Pages
 ```
+
+## Verification visuelle (Storybook)
+
+Chaque composant Phase 1+ livre **sa story `*.stories.tsx`** à côté du source.
+Avant d'implémenter un ticket UI, on **pull la maquette Figma** (cf. `docs/02-ux-spec.md` §0) ; après implém', on ouvre Storybook (`pnpm storybook`) et on compare side-by-side. Le toolbar permet de switcher light/dark + page accent.
 
 ## Décisions documentées
 

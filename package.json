@@ -19,6 +19,8 @@
     "test:ui": "playwright test --ui",
     "test:a11y": "playwright test tests/a11y --pass-with-no-tests",
     "lh": "lhci autorun",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "build-storybook": "storybook build -o storybook-static",
     "prepare": "simple-git-hooks"
   },
   "simple-git-hooks": {
@@ -40,10 +42,13 @@
     "@biomejs/biome": "^1.9.0",
     "@lhci/cli": "^0.14.0",
     "@playwright/test": "^1.49.0",
+    "@storybook/addon-themes": "^10.3.6",
+    "@storybook/react-vite": "^10.3.6",
     "@types/node": "^22.10.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "lightningcss": "^1.32.0",
-    "simple-git-hooks": "^2.11.0"
+    "simple-git-hooks": "^2.11.0",
+    "storybook": "^10.3.6"
   }
 }
