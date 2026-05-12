@@ -1,5 +1,6 @@
 ---
-import Pill from '@/components/primitives/Pill.astro';
+import LangToggle from '@/components/primitives/LangToggle.tsx';
+import '@/components/primitives/LangToggle.css';
 import ThemeToggle from '@/components/primitives/ThemeToggle.tsx';
 import '@/components/primitives/ThemeToggle.css';
 import { SITE_VERSION } from '@/data/meta';
@@ -15,7 +16,7 @@ import { PanelRight } from 'lucide-react';
     <a href="#changelog" class="version-badge" aria-label={`Version ${SITE_VERSION} — voir le changelog`}>
       v{SITE_VERSION}
     </a>
-    <Pill options={['FR', 'EN'] as const} current="FR" label="Langue" />
+    <LangToggle client:idle />
     <ThemeToggle client:idle />
     <button type="button" class="inspect-toggle" data-inspect-toggle aria-label="Afficher le panneau Inspect">
       <PanelRight size={14} aria-hidden="true" />

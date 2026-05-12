@@ -1,0 +1,62 @@
+/* Mirrors Pill primitive — same visual contract, but interactive (buttons).
+   Uses <fieldset> + <legend> for proper grouping semantics ; UA defaults reset. */
+.lang-toggle {
+  display: inline-flex;
+  border: var(--border-1) solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  block-size: var(--size-control-sm);
+  align-items: stretch;
+  /* fieldset UA reset */
+  margin: 0;
+  padding: 0;
+  min-inline-size: 0;
+}
+
+.lang-toggle-legend {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.lang-toggle-option {
+  display: inline-flex;
+  align-items: center;
+  padding-inline: var(--space-3);
+  background: transparent;
+  border: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1;
+  color: var(--fg-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: color var(--duration-sm) var(--ease-out);
+}
+
+.lang-toggle-option[data-active='true'] {
+  background: var(--bg-subtle);
+  color: var(--fg-primary);
+}
+
+.lang-toggle-option:hover:not([data-active='true']) {
+  color: var(--fg-secondary);
+}
+
+.lang-toggle-option:focus-visible {
+  outline: var(--border-2) solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-toggle-option {
+    transition: none;
+  }
+}

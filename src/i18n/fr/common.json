@@ -1,0 +1,14 @@
+{
+  "name": "Paul-Émile Moreau",
+  "role": "Front-end engineer + design systems",
+  "baseline": "CV présenté comme la documentation d'un design system.",
+  "nav_foundations": "Foundations",
+  "nav_components": "Composants",
+  "nav_patterns": "Patterns",
+  "lang_label": "Langue",
+  "theme_dark": "Activer le thème sombre",
+  "theme_light": "Activer le thème clair",
+  "skip_to_content": "Aller au contenu",
+  "view_more": "Voir plus",
+  "back_to_top": "Retour en haut"
+}
