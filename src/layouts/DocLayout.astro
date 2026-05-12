@@ -56,21 +56,127 @@ const {
   <body data-page={page}>
     <a class="app-skip-link" href="#main">Aller au contenu</a>
 
-    <!-- TODO: <Header /> instance — to be added via tickets phase 1 -->
-    <!-- TODO: 3-column body — sidebar / main / inspect -->
+    <div class="app-shell">
+      <header class="app-header">
+        <slot name="header" />
+      </header>
 
-    <main id="main">
-      <slot />
-    </main>
+      <aside class="app-sidebar" aria-label="Navigation">
+        <slot name="sidebar" />
+      </aside>
 
-    <!-- TODO: scripts pour theme/lang stores nanostores — phase 1 -->
+      <main id="main" class="app-main">
+        <slot />
+      </main>
+
+      <aside class="app-inspect" aria-label="Inspect">
+        <slot name="inspect" />
+      </aside>
+    </div>
   </body>
 </html>
 
 <style>
   body {
-    display: grid;
-    grid-template-rows: var(--size-header) 1fr;
     min-block-size: 100dvb;
+  }
+
+  /* Desktop ≥ 1024px — 3 columns: sidebar / center / inspect.
+     `data-inspect-open` toggle is owned by #4 (Header); CSS-only here. */
+  .app-shell {
+    display: grid;
+    grid-template-columns: var(--size-sidebar) 1fr var(--size-inspect);
+    grid-template-rows: var(--size-header) 1fr;
+    grid-template-areas:
+      'header header header'
+      'sidebar main inspect';
+    min-block-size: 100dvb;
+    background: var(--bg-app);
+  }
+
+  .app-header {
+    grid-area: header;
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 10;
+    background: var(--bg-app);
+    border-block-end: var(--border-1) solid var(--border-subtle);
+  }
+
+  .app-sidebar {
+    grid-area: sidebar;
+    padding: var(--space-3);
+    border-inline-end: var(--border-1) solid var(--border-subtle);
+  }
+
+  .app-main {
+    grid-area: main;
+    padding: var(--space-6) var(--space-8);
+    inline-size: 100%;
+    max-inline-size: var(--size-center-max);
+    margin-inline: auto;
+  }
+
+  .app-inspect {
+    grid-area: inspect;
+    padding: var(--space-4);
+    border-inline-start: var(--border-1) solid var(--border-subtle);
+  }
+
+  /* Tablet 768-1023px — Inspect off-grid, slides in when toggled. */
+  @media (max-width: 1023px) and (min-width: 768px) {
+    .app-shell {
+      grid-template-columns: var(--size-sidebar) 1fr;
+      grid-template-areas:
+        'header header'
+        'sidebar main';
+    }
+    .app-inspect {
+      position: fixed;
+      inset-block: var(--size-header) 0;
+      inset-inline-end: 0;
+      inline-size: var(--size-inspect);
+      background: var(--bg-app);
+      border-block-start: 0;
+      transform: translateX(100%);
+      transition: transform var(--duration-md) var(--ease-out);
+      z-index: 9;
+    }
+    body[data-inspect-open='true'] .app-inspect {
+      transform: translateX(0);
+    }
+  }
+
+  /* Mobile < 768px — Sidebar hidden (drawer = #10), Inspect = bottom peek.
+     Real bottom-sheet drag interaction lands with #10. */
+  @media (max-width: 767px) {
+    .app-shell {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'header'
+        'main';
+      padding-block-end: var(--size-control-lg);
+    }
+    .app-sidebar {
+      display: none;
+    }
+    .app-inspect {
+      position: fixed;
+      inset-inline: 0;
+      inset-block-end: 0;
+      block-size: var(--size-control-lg);
+      overflow: hidden;
+      background: var(--bg-app);
+      border-block-start: var(--border-1) solid var(--border-subtle);
+      border-inline-start: 0;
+      padding: var(--space-2) var(--space-4);
+      z-index: 9;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app-inspect {
+      transition: none;
+    }
   }
 </style>
