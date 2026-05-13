@@ -56,7 +56,12 @@ Pages
 ## Verification visuelle (Storybook)
 
 Chaque composant Phase 1+ livre **sa story `*.stories.tsx`** à côté du source.
-Avant d'implémenter un ticket UI, on **pull la maquette Figma** (cf. `docs/02-ux-spec.md` §0) ; après implém', on ouvre Storybook (`pnpm storybook`) et on compare side-by-side. Le toolbar permet de switcher light/dark + page accent.
+Avant d'implémenter un ticket UI, on **pull la maquette Figma** (cf. `docs/02-ux-spec.md` §0) ; après implém', on compare side-by-side avec Storybook :
+
+- En local : `pnpm storybook` → `http://localhost:6006`
+- Hébergé : `https://sb.polemil.dev` (rebuild auto sur merge `main`, cf. `docs/04-architecture.md` §8.3)
+
+Le toolbar permet de switcher light/dark + page accent.
 
 ## Décisions documentées
 
