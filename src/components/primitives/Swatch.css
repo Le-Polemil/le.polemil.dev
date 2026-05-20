@@ -1,0 +1,110 @@
+/* Mirrors the Figma swatch card (node 9:15 et al.) :
+   - Card: 220px wide, padding 12px, bg-surface, 1px border-subtle, radius 6px
+   - Tile (color): 196px × 56px, 0.5px border-subtle, radius 4px
+   - Tile (text-sample): narrow column (21px), background bg-inset, Aa centered
+   - Labels: mono 12px (token) + mono 11px fg-tertiary (hex)
+   - Hover/focus: slight elevation, accent border. Active "Copié" feedback overlay. */
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  inline-size: 220px;
+  padding: var(--space-3);
+  background: var(--bg-surface);
+  border: var(--border-1) solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: start;
+  position: relative;
+  transition: border-color var(--duration-sm) var(--ease-out), box-shadow var(--duration-sm)
+    var(--ease-out);
+}
+
+.swatch:hover {
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-2, 0 4px 8px -2px rgb(0 0 0 / 0.06));
+}
+
+.swatch:focus-visible {
+  outline: var(--border-2) solid var(--accent);
+  outline-offset: 2px;
+}
+
+.swatch-tile {
+  block-size: 56px;
+  inline-size: 100%;
+  border-radius: var(--radius-sm);
+  border: var(--border-0_5) solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.swatch-tile-text {
+  inline-size: 21px;
+  background: var(--bg-inset);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swatch-aa {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.swatch-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-mono);
+}
+
+.swatch-token {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--fg-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.swatch-hex {
+  font-size: var(--text-xs);
+  line-height: 16px;
+  color: var(--fg-tertiary);
+  text-transform: uppercase;
+}
+
+/* Copied feedback — overlays the tile with "Copié" pill for ~1s. */
+.swatch-feedback {
+  position: absolute;
+  inset-block-start: var(--space-3);
+  inset-inline-end: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 6px;
+  background: var(--fg-primary);
+  color: var(--bg-surface);
+  border-radius: var(--radius-xs);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-sm) var(--ease-out);
+}
+
+.swatch[data-copied='true'] .swatch-feedback {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swatch,
+  .swatch-feedback {
+    transition: none;
+  }
+}
