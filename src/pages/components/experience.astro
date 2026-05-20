@@ -1,20 +1,118 @@
 ---
+import ExperienceCard from '@/components/cv/ExperienceCard.tsx';
+import '@/components/cv/ExperienceCard.css';
+import '@/components/primitives/Badge.css';
+import { EXPERIENCES } from '@/data/experiences';
 import DocLayout from '@/layouts/DocLayout.astro';
+
+const experience = EXPERIENCES[0];
+if (!experience) {
+  throw new Error('experiences dataset is empty — at least one entry is required');
+}
 ---
 
-<DocLayout title="Experience — polemil.dev" page="experience">
-  <section>
-    <p
-      style="font-family: var(--font-mono); font-size: var(--text-2xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);"
-    >
-      Components / Experience — stub
-    </p>
-    <h1 style="font-size: var(--text-2xl); margin-block-start: var(--space-2);">
-      ExperienceCard
-    </h1>
-    <p style="color: var(--fg-secondary); margin-block-start: var(--space-3);">
-      Page stub utilisée par le ticket #2 pour vérifier la transition d'accent entre pages. Le
-      vrai contenu arrive avec le ticket #8.
-    </p>
-  </section>
+<DocLayout title="Components / Experience — polemil.dev" page="experience">
+  <article class="experience-page">
+    <header class="experience-page-header">
+      <p class="eyebrow">COMPONENTS / EXPERIENCE</p>
+      <h1>ExperienceCard</h1>
+      <p class="description">
+        Composant CV avec 4 variants. La page composant complète (Preview / Code / Props) arrive
+        au ticket #8 ; cette page démontre les variants côte à côte.
+      </p>
+    </header>
+
+    <section class="experience-page-section" aria-label="Variants">
+      <h2 class="experience-page-section-label">Variants</h2>
+
+      <div class="experience-page-variant">
+        <span class="experience-page-variant-label">default</span>
+        <ExperienceCard experience={experience} variant="default" />
+      </div>
+      <div class="experience-page-variant">
+        <span class="experience-page-variant-label">expanded</span>
+        <ExperienceCard experience={experience} variant="expanded" />
+      </div>
+      <div class="experience-page-variant">
+        <span class="experience-page-variant-label">compact</span>
+        <ExperienceCard experience={experience} variant="compact" />
+      </div>
+      <div class="experience-page-variant">
+        <span class="experience-page-variant-label">timeline</span>
+        <ExperienceCard experience={experience} variant="timeline" />
+      </div>
+    </section>
+  </article>
 </DocLayout>
+
+<style>
+  .experience-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    padding-block: var(--space-8);
+  }
+
+  .experience-page-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: var(--text-2xs);
+    line-height: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--fg-tertiary);
+  }
+
+  .experience-page-header h1 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: var(--text-2xl);
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    color: var(--fg-primary);
+    margin: 0;
+  }
+
+  .description {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 22px;
+    color: var(--fg-secondary);
+    max-inline-size: 60ch;
+  }
+
+  .experience-page-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .experience-page-section-label {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: var(--text-2xs);
+    line-height: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--fg-secondary);
+    margin: 0;
+  }
+
+  .experience-page-variant {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .experience-page-variant-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--fg-tertiary);
+  }
+</style>

@@ -1,0 +1,241 @@
+/* ExperienceCard — Figma component 15:58 with 4 variants.
+   - default (15:2)   : 420 wide, padding 14, gap 8 vertical, border-subtle
+   - expanded (15:20) : 420 wide, padding 16, gap 12 vertical, border-default
+   - compact (15:41)  : 420 wide, padding 10h/8v, single row, radius sm
+   - timeline (15:48) : row with axis 10×70 + body card */
+
+.experience-card {
+  display: flex;
+  inline-size: 420px;
+  font-family: var(--font-sans);
+  color: var(--fg-primary);
+  margin: 0;
+}
+
+.experience-card[data-variant='default'] {
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 14px;
+  background: var(--bg-surface);
+  border: var(--border-1) solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.experience-card[data-variant='expanded'] {
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-surface);
+  border: var(--border-1) solid var(--border-default);
+  border-radius: var(--radius-md);
+}
+
+.experience-card[data-variant='compact'] {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 10px;
+  border: var(--border-1) solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.experience-card[data-variant='timeline'] {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+/* === Top row (default + expanded) === */
+.experience-card-top {
+  display: flex;
+  inline-size: 100%;
+  align-items: center;
+  gap: 10px;
+}
+
+/* === Avatar — accent-experience background + on-accent letter === */
+.experience-card-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  line-height: 16px;
+  color: var(--fg-on-accent);
+  background: var(--accent-experience);
+  flex-shrink: 0;
+}
+
+.experience-card-avatar[data-size='20'] {
+  inline-size: 20px;
+  block-size: 20px;
+  border-radius: var(--radius-sm);
+}
+
+.experience-card-avatar[data-size='28'] {
+  inline-size: 28px;
+  block-size: 28px;
+  border-radius: var(--radius-md);
+}
+
+.experience-card-avatar[data-size='32'] {
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: var(--radius-md);
+}
+
+/* === Title block (role · company + dates) === */
+.experience-card-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 0 0;
+  min-inline-size: 0;
+}
+
+.experience-card-role-line {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--fg-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.experience-card-role-line[data-size='sm'],
+.experience-card[data-variant='timeline'] .experience-card-role-line {
+  font-size: var(--text-sm);
+  line-height: 20px;
+  letter-spacing: -0.01em;
+}
+
+.experience-card-role-line[data-size='md'] {
+  font-size: var(--text-md);
+  line-height: 24px;
+  letter-spacing: -0.01em;
+}
+
+.experience-card-dates {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--text-xs);
+  line-height: 16px;
+  color: var(--fg-secondary);
+}
+
+/* === Description (expanded only) === */
+.experience-card-description {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  color: var(--fg-secondary);
+}
+
+/* === Stack tags (default + expanded) === */
+.experience-card-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.experience-card-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border: var(--border-0_5) solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 14px;
+  color: var(--fg-secondary);
+  white-space: nowrap;
+}
+
+/* === Compact variant === */
+.experience-card[data-variant='compact'] .experience-card-role {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  color: var(--fg-primary);
+  white-space: nowrap;
+}
+
+.experience-card[data-variant='compact'] .experience-card-company {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-sm);
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  color: var(--fg-secondary);
+  white-space: nowrap;
+}
+
+.experience-card-spacer {
+  flex: 1 0 0;
+}
+
+.experience-card[data-variant='compact'] .experience-card-dates {
+  color: var(--fg-tertiary);
+}
+
+/* === Timeline variant === */
+.experience-card-axis {
+  position: relative;
+  inline-size: 10px;
+  block-size: 70px;
+  flex-shrink: 0;
+}
+
+.experience-card-axis::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-start: 50%;
+  inline-size: var(--border-1);
+  block-size: calc(100% - 10px);
+  background: var(--border-default);
+  transform: translateX(-50%);
+}
+
+.experience-card-axis::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: var(--radius-full);
+  background: var(--accent-timeline);
+}
+
+.experience-card[data-variant='timeline'] .experience-card-body {
+  flex: 1 0 0;
+  min-inline-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--space-3) 14px var(--space-4);
+  background: var(--bg-surface);
+  border: var(--border-1) solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.experience-card-year-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.experience-card-year {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 16px;
+  color: var(--accent-timeline);
+}
