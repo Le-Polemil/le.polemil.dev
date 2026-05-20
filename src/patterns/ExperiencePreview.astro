@@ -3,27 +3,57 @@
  * ExperiencePreview — Figma node 52:2.
  * 2×2 grid showcasing the 4 ExperienceCard variants on an inset surface.
  * Used by /components/experience as the Preview tab content.
+ *
+ * When `selectable` is true, each card is wrapped in a React island that
+ * dispatches to the `selectedItem` nanostore on click — picked up by
+ * `<InspectPanel />`. Defaults to non-interactive cards.
  */
 import ExperienceCard from '@/components/cv/ExperienceCard.tsx';
+import SelectableExperienceCard from '@/components/cv/SelectableExperienceCard.tsx';
 import '@/components/cv/ExperienceCard.css';
+import '@/components/cv/SelectableExperienceCard.css';
 import '@/components/primitives/Badge.css';
+import type { ExperienceCardVariant } from '@/components/cv/ExperienceCard';
 import type { Experience } from '@/data/experiences';
 
 interface Props {
   experience: Experience;
+  /** If true, cards become clickable + dispatch to the selectedItem store. */
+  selectable?: boolean;
 }
 
-const { experience } = Astro.props;
+const { experience, selectable = false } = Astro.props;
+
+const variants: ReadonlyArray<ExperienceCardVariant> = [
+  'default',
+  'expanded',
+  'compact',
+  'timeline',
+];
 ---
 
 <div class="experience-preview" aria-label="Preview des variants ExperienceCard">
   <div class="experience-preview-row">
-    <ExperienceCard experience={experience} variant="default" />
-    <ExperienceCard experience={experience} variant="expanded" />
+    {
+      variants.slice(0, 2).map((v) =>
+        selectable ? (
+          <SelectableExperienceCard client:idle experience={experience} variant={v} />
+        ) : (
+          <ExperienceCard experience={experience} variant={v} />
+        ),
+      )
+    }
   </div>
   <div class="experience-preview-row">
-    <ExperienceCard experience={experience} variant="compact" />
-    <ExperienceCard experience={experience} variant="timeline" />
+    {
+      variants.slice(2).map((v) =>
+        selectable ? (
+          <SelectableExperienceCard client:idle experience={experience} variant={v} />
+        ) : (
+          <ExperienceCard experience={experience} variant={v} />
+        ),
+      )
+    }
   </div>
 </div>
 

@@ -1,0 +1,115 @@
+/* InspectPanel — Figma node 25:2.
+   bg-inset, padding 16, gap 16 vertical, width 280 (already set by DocLayout).
+   Sections separated by border-top subtle (except the first).
+   View Transition name "inspect" so the panel morphs between routes. */
+
+.inspect-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  block-size: 100%;
+  view-transition-name: inspect;
+}
+
+.inspect-panel-empty {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 16px;
+  color: var(--fg-tertiary);
+}
+
+.inspect-panel-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.inspect-panel-section--bordered {
+  padding-block-start: var(--space-3);
+  border-block-start: var(--border-1) solid var(--border-subtle);
+}
+
+.inspect-panel-eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--text-2xs);
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--fg-tertiary);
+}
+
+/* === Properties section === */
+.inspect-panel-prop-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.inspect-panel-prop-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  line-height: 14px;
+  color: var(--fg-secondary);
+}
+
+.inspect-panel-prop-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 16px;
+  color: var(--fg-primary);
+}
+
+/* === Tokens section === */
+.inspect-panel-token-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.inspect-panel-chip {
+  inline-size: 14px;
+  block-size: 14px;
+  border-radius: var(--radius-xs);
+  border: var(--border-0_5) solid var(--border-default);
+  flex-shrink: 0;
+}
+
+.inspect-panel-token-name {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 16px;
+  color: var(--fg-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* === Used in section === */
+.inspect-panel-used-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 16px;
+  text-decoration: none;
+  color: var(--fg-secondary);
+  transition: color var(--duration-sm) var(--ease-out);
+}
+
+.inspect-panel-used-row:hover {
+  color: var(--fg-primary);
+}
+
+.inspect-panel-used-arrow {
+  color: var(--fg-tertiary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inspect-panel-used-row {
+    transition: none;
+  }
+}
