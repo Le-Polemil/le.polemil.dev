@@ -1,0 +1,133 @@
+---
+import ComponentDocHeader from '@/components/system/ComponentDocHeader.astro';
+import { EXPERIENCE_CARD_PROPS } from '@/data/experience-card-meta';
+import DocLayout from '@/layouts/DocLayout.astro';
+---
+
+<DocLayout title="<Experience /> · Props — polemil.dev" page="experience">
+  <article class="component-doc">
+    <ComponentDocHeader
+      title="<Experience />"
+      subtitle="Une expérience pro. 4 variants, 3 états."
+      basePath="/components/experience"
+      active="props"
+    />
+    <section class="component-doc-content" aria-label="Props">
+      <table class="props-table">
+        <thead>
+          <tr>
+            <th scope="col" class="props-col-name">NAME</th>
+            <th scope="col" class="props-col-type">TYPE</th>
+            <th scope="col" class="props-col-default">DEFAULT</th>
+            <th scope="col" class="props-col-description">DESCRIPTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            EXPERIENCE_CARD_PROPS.map((row) => (
+              <tr>
+                <td class="props-cell-name">
+                  <code>{row.name}</code>
+                </td>
+                <td class="props-cell-type">
+                  <code>{row.type}</code>
+                </td>
+                <td class="props-cell-default">
+                  <code>{row.defaultValue}</code>
+                </td>
+                <td class="props-cell-description">{row.description}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </section>
+  </article>
+</DocLayout>
+
+<style>
+  .component-doc {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding-block: var(--space-8);
+  }
+
+  .component-doc-content {
+    inline-size: 100%;
+  }
+
+  /* Props table — Figma node 55:823 */
+  .props-table {
+    inline-size: 100%;
+    background: var(--bg-surface);
+    border: var(--border-1) solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    border-collapse: collapse;
+    overflow: hidden;
+  }
+
+  .props-table thead th {
+    background: var(--bg-inset);
+    border-block-end: var(--border-1) solid var(--border-subtle);
+    padding: 10px var(--space-4);
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: var(--text-2xs);
+    line-height: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--fg-tertiary);
+    text-align: start;
+  }
+
+  .props-col-name { inline-size: 140px; }
+  .props-col-type { inline-size: 220px; }
+  .props-col-default { inline-size: 130px; }
+  .props-col-description { inline-size: auto; }
+
+  .props-table tbody tr {
+    border-block-end: var(--border-1) solid var(--border-subtle);
+  }
+
+  .props-table tbody tr:last-child {
+    border-block-end: 0;
+  }
+
+  .props-table tbody td {
+    padding: 10px var(--space-4);
+    vertical-align: top;
+    font-family: var(--font-sans);
+  }
+
+  .props-cell-name code {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: var(--text-sm);
+    line-height: 18px;
+    color: var(--fg-primary);
+  }
+
+  .props-cell-type code {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    line-height: 16px;
+    color: var(--accent);
+    overflow-wrap: anywhere;
+  }
+
+  .props-cell-default code {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    line-height: 16px;
+    color: var(--fg-secondary);
+  }
+
+  .props-cell-description {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    color: var(--fg-secondary);
+  }
+</style>

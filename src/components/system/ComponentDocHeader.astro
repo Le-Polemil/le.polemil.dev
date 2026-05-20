@@ -1,0 +1,67 @@
+---
+/**
+ * Shared header for a Components / <Name> page : eyebrow + h1 + subtitle + TabBar.
+ * Used by /components/experience and its /code, /props sub-routes.
+ */
+import TabBar from '@/components/system/TabBar.astro';
+
+type Tab = 'preview' | 'code' | 'props';
+
+interface Props {
+  /** e.g. "<Experience />" — rendered as the page h1, surrounded by code-ish styling. */
+  title: string;
+  subtitle: string;
+  /** Base path of the component doc, e.g. "/components/experience". Sub-routes are inferred. */
+  basePath: string;
+  active: Tab;
+}
+
+const { title, subtitle, basePath, active } = Astro.props;
+
+const tabs = [
+  { label: 'Preview', href: basePath, active: active === 'preview' },
+  { label: 'Code', href: `${basePath}/code`, active: active === 'code' },
+  { label: 'Props', href: `${basePath}/props`, active: active === 'props' },
+] as const;
+---
+
+<header class="component-doc-header">
+  <div class="component-doc-title-block">
+    <h1 class="component-doc-title">{title}</h1>
+    <p class="component-doc-subtitle">{subtitle}</p>
+  </div>
+  <TabBar ariaLabel={`Sections de ${title}`} tabs={tabs} />
+</header>
+
+<style>
+  .component-doc-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .component-doc-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .component-doc-title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: var(--text-xl);
+    line-height: 36px;
+    letter-spacing: -0.015em;
+    color: var(--fg-primary);
+  }
+
+  .component-doc-subtitle {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    color: var(--fg-secondary);
+  }
+</style>
