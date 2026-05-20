@@ -1,0 +1,30 @@
+/* Selectable wrapper around ExperienceCard — exposes focus/hover/selected
+   styling so the card looks clickable. The underlying card keeps its own
+   visual contract ; this wrapper only adds an outline state. */
+
+.experience-card-selectable {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: outline-color var(--duration-sm) var(--ease-out);
+  outline: var(--border-2) solid transparent;
+  outline-offset: 2px;
+}
+
+.experience-card-selectable:hover {
+  outline-color: var(--accent-border);
+}
+
+.experience-card-selectable:focus-visible {
+  outline-color: var(--accent);
+}
+
+.experience-card-selectable[data-selected='true'] {
+  outline-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-card-selectable {
+    transition: none;
+  }
+}

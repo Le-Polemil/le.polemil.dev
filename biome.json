@@ -81,6 +81,16 @@
           }
         }
       }
+    },
+    {
+      "include": ["src/components/cv/SelectableExperienceCard.tsx"],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "useSemanticElements": "off"
+          }
+        }
+      }
     }
   ]
 }

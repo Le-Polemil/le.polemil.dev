@@ -1,6 +1,8 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import Header from '@/components/system/Header.astro';
+import InspectPanel from '@/components/system/InspectPanel.tsx';
+import '@/components/system/InspectPanel.css';
 import '@/styles/global.css';
 
 interface Props {
@@ -73,7 +75,9 @@ const {
       </main>
 
       <aside class="app-inspect" aria-label="Inspect">
-        <slot name="inspect" />
+        <slot name="inspect">
+          <InspectPanel client:visible />
+        </slot>
       </aside>
     </div>
   </body>
