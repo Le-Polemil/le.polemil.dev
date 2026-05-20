@@ -1,0 +1,41 @@
+---
+/**
+ * CodeBlock — Figma node 54:710.
+ * Mono 12/18 on bg-inset, padding 16/12, radius md. Renders as <pre><code>
+ * with whitespace-preserved formatting. Slot accepts the code as a string ;
+ * the component does not handle syntax highlighting (intentional — phase 1
+ * keeps this as plain mono ; syntax tokens can come later via Shiki).
+ */
+interface Props {
+  /** Language tag, used as an aria-label hint. */
+  lang?: string;
+}
+
+const { lang } = Astro.props;
+---
+
+<pre
+  class="code-block"
+  aria-label={lang ? `Bloc de code (${lang})` : 'Bloc de code'}
+><code><slot /></code></pre>
+
+<style>
+  .code-block {
+    background: var(--bg-inset);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: 18px;
+    color: var(--fg-primary);
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  .code-block code {
+    font-family: inherit;
+    font-size: inherit;
+    background: transparent;
+  }
+</style>

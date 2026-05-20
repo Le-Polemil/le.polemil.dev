@@ -1,25 +1,20 @@
 ---
+import CodeBlock from '@/components/primitives/CodeBlock.astro';
 import ComponentDocHeader from '@/components/system/ComponentDocHeader.astro';
-import { EXPERIENCES } from '@/data/experiences';
+import { EXPERIENCE_CARD_CODE_SAMPLE } from '@/data/experience-card-meta';
 import DocLayout from '@/layouts/DocLayout.astro';
-import ExperiencePreview from '@/patterns/ExperiencePreview.astro';
-
-const experience = EXPERIENCES[0];
-if (!experience) {
-  throw new Error('experiences dataset is empty — at least one entry is required');
-}
 ---
 
-<DocLayout title="<Experience /> — polemil.dev" page="experience">
+<DocLayout title="<Experience /> · Code — polemil.dev" page="experience">
   <article class="component-doc">
     <ComponentDocHeader
       title="<Experience />"
       subtitle="Une expérience pro. 4 variants, 3 états."
       basePath="/components/experience"
-      active="preview"
+      active="code"
     />
-    <section class="component-doc-content" aria-label="Preview">
-      <ExperiencePreview experience={experience} />
+    <section class="component-doc-content" aria-label="Code">
+      <CodeBlock lang="tsx">{EXPERIENCE_CARD_CODE_SAMPLE}</CodeBlock>
     </section>
   </article>
 </DocLayout>

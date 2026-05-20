@@ -1,0 +1,78 @@
+---
+/**
+ * TabBar — Figma node 24:2 (and instances 24:9 / 24:16).
+ * Pill-style tabs with mono 12px label. Active tab gets bg-subtle + medium weight.
+ * Each tab is an anchor — View Transitions (Astro ClientRouter) handle the crossfade.
+ */
+interface TabItem {
+  label: string;
+  href: string;
+  active: boolean;
+}
+
+interface Props {
+  /** Accessible label for the tablist, e.g. "Sections de <Experience />". */
+  ariaLabel: string;
+  tabs: ReadonlyArray<TabItem>;
+}
+
+const { ariaLabel, tabs } = Astro.props;
+---
+
+<nav class="tab-bar" role="tablist" aria-label={ariaLabel}>
+  {
+    tabs.map((tab) => (
+      <a
+        href={tab.href}
+        class="tab"
+        role="tab"
+        aria-selected={tab.active ? 'true' : 'false'}
+        data-active={tab.active ? 'true' : 'false'}
+      >
+        {tab.label}
+      </a>
+    ))
+  }
+</nav>
+
+<style>
+  .tab-bar {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
+  .tab {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-1) 10px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: 18px;
+    color: var(--fg-tertiary);
+    text-decoration: none;
+    transition: background-color var(--duration-sm) var(--ease-out);
+  }
+
+  .tab[data-active='true'] {
+    background: var(--bg-subtle);
+    color: var(--fg-primary);
+    font-weight: 500;
+  }
+
+  .tab:hover:not([data-active='true']) {
+    color: var(--fg-secondary);
+  }
+
+  .tab:focus-visible {
+    outline: var(--border-2) solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tab {
+      transition: none;
+    }
+  }
+</style>
