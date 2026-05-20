@@ -1,5 +1,5 @@
 import type { Experience } from '@/data/experiences';
-import { selectedItem } from '@/stores/selected-item';
+import { selectedItem, setSelection } from '@/stores/selected-item';
 import { useStore } from '@nanostores/react';
 import { type KeyboardEvent, useEffect, useState } from 'react';
 import ExperienceCard, { type ExperienceCardVariant } from './ExperienceCard';
@@ -30,7 +30,11 @@ export default function SelectableExperienceCard(props: Props) {
 
   const select = () => {
     const e = props.experience;
-    selectedItem.set({
+    // `setSelection` wraps the store mutation in `document.startViewTransition()`
+    // so the panel morphs between empty / populated / different selections.
+    // `usedIn` href is "#" until the Pattern Timeline page exists — once it
+    // lands, swap to "/patterns/timeline".
+    setSelection({
       kind: 'experience',
       id: e.id,
       properties: [
@@ -44,7 +48,7 @@ export default function SelectableExperienceCard(props: Props) {
         { token: '--badge-bg', chip: '--status-success-bg' },
         { token: '--surface', chip: '--bg-surface' },
       ],
-      usedIn: [{ label: 'Pattern Timeline', href: '/patterns/timeline' }],
+      usedIn: [{ label: 'Pattern Timeline', href: '#' }],
     });
   };
 

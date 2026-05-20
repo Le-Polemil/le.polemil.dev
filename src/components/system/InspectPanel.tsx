@@ -13,14 +13,14 @@ export default function InspectPanel() {
 
   if (selection === null) {
     return (
-      <aside className="inspect-panel" data-state="empty">
+      <div className="inspect-panel" data-state="empty">
         <p className="inspect-panel-empty">Sélectionne un élément pour voir ses détails.</p>
-      </aside>
+      </div>
     );
   }
 
   return (
-    <aside className="inspect-panel" data-state="populated" data-selected-kind={selection.kind}>
+    <div className="inspect-panel" data-state="populated" data-selected-kind={selection.kind}>
       <section className="inspect-panel-section" aria-label="Properties">
         <h3 className="inspect-panel-eyebrow">PROPERTIES</h3>
         {selection.properties.map((p) => (
@@ -66,6 +66,6 @@ export default function InspectPanel() {
           ))}
         </section>
       ) : null}
-    </aside>
+    </div>
   );
 }
