@@ -58,7 +58,9 @@
   /* Foreground */
   --fg-primary: #1f1b14;
   --fg-secondary: #52493a;
-  --fg-tertiary: #8b816e;
+  /* #8b816e gave 3.62:1 against --bg-default (#fbf8f2), failing WCAG AA
+     contrast for small text. Darkened to #6a604f → ~5.6:1. */
+  --fg-tertiary: #6a604f;
   --fg-on-accent: #ffffff;
 
   /* Status */
