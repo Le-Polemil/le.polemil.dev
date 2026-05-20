@@ -1,0 +1,102 @@
+---
+import Swatch from '@/components/primitives/Swatch.tsx';
+import '@/components/primitives/Swatch.css';
+import { COLOR_TOKEN_GROUPS } from '@/data/color-tokens';
+import DocLayout from '@/layouts/DocLayout.astro';
+---
+
+<DocLayout title="Foundations / Colors — polemil.dev" page="foundations-colors">
+  <article class="colors-page">
+    <header class="colors-page-header">
+      <p class="eyebrow">FOUNDATIONS / COLORS</p>
+      <h1>Colors</h1>
+      <p class="description">
+        Tokens couleur de la collection Colors — light mode affiché. Bascule le thème pour passer
+        en dark. Clique un swatch pour copier son nom CSS.
+      </p>
+    </header>
+
+    {
+      COLOR_TOKEN_GROUPS.map((group) => (
+        <section class="colors-group" aria-label={group.label}>
+          <h2 class="colors-group-label">{group.label}</h2>
+          <div class="colors-row">
+            {group.tokens.map((t) => (
+              <Swatch client:idle token={t.token} hex={t.hex} kind={group.kind} />
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </article>
+</DocLayout>
+
+<style>
+  /* The Figma frame uses 80px outer padding ; we already have --space-6 / --space-8
+     baked into .app-main, so this just tunes the inner block scale. */
+  .colors-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    padding-block: var(--space-8);
+  }
+
+  .colors-page-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: var(--text-2xs);
+    line-height: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--fg-tertiary);
+  }
+
+  .colors-page-header h1 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: var(--text-2xl);
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    color: var(--fg-primary);
+    margin: 0;
+  }
+
+  .description {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: var(--text-base);
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    color: var(--fg-secondary);
+    max-inline-size: 60ch;
+  }
+
+  .colors-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .colors-group-label {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: var(--text-2xs);
+    line-height: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--fg-secondary);
+    margin: 0;
+  }
+
+  .colors-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+</style>
