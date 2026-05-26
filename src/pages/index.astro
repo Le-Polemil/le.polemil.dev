@@ -1,17 +1,121 @@
 ---
+import ExperienceCard from '@/components/cv/ExperienceCard.tsx';
+import '@/components/cv/ExperienceCard.css';
+import '@/components/primitives/Badge.css';
+import { EXPERIENCES_EN, EXPERIENCES_FR } from '@/data/experiences';
+import enCommon from '@/i18n/en/common.json';
+import frCommon from '@/i18n/fr/common.json';
 import DocLayout from '@/layouts/DocLayout.astro';
+
+const t = { fr: frCommon, en: enCommon };
+const experiences = { fr: EXPERIENCES_FR, en: EXPERIENCES_EN } as const;
+const locales = ['fr', 'en'] as const;
 ---
 
-<DocLayout title="polemil.dev — design system" page="foundations-colors">
-  <section>
-    <p style="font-family: var(--font-mono); font-size: var(--text-2xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--fg-tertiary);">
-      Scaffold — phase 1 tickets pending
-    </p>
-    <h1 style="font-size: var(--text-2xl); margin-block-start: var(--space-2);">
-      polemil.dev
-    </h1>
-    <p style="color: var(--fg-secondary); margin-block-start: var(--space-3);">
-      The squelette is in place. Components, patterns and pages will be filled in via the GitHub backlog (étape 5).
-    </p>
-  </section>
+<DocLayout title="polemil.dev — Paul-Émile Moreau">
+  <article class="home">
+    {
+      locales.map((lang) => (
+        <section class="home-hero" lang={lang}>
+          <p class="home-eyebrow">{t[lang].home_eyebrow}</p>
+          <h1 class="home-title">{t[lang].home_title}</h1>
+          <p class="home-subtitle">{t[lang].home_subtitle}</p>
+          <p class="home-line">{t[lang].home_expert_line}</p>
+          <p class="home-line">{t[lang].home_diploma_line}</p>
+        </section>
+      ))
+    }
+
+    {
+      locales.map((lang) => (
+        <section class="home-timeline" aria-labelledby={`timeline-h-${lang}`} lang={lang}>
+          <header class="home-timeline-header">
+            <h2 id={`timeline-h-${lang}`} class="home-timeline-title">
+              {t[lang].home_section_timeline}
+            </h2>
+            <p class="home-timeline-subtitle">{t[lang].home_section_timeline_subtitle}</p>
+          </header>
+          <ol class="home-timeline-list" role="list">
+            {experiences[lang].map((experience) => (
+              <li>
+                <ExperienceCard experience={experience} variant="timeline" />
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))
+    }
+  </article>
 </DocLayout>
+
+<style>
+  .home {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding-block: var(--space-8);
+  }
+
+  .home-hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .home-eyebrow {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--fg-tertiary);
+  }
+
+  .home-title {
+    margin: 0;
+    font-size: var(--text-3xl);
+    line-height: 1.1;
+    color: var(--fg-primary);
+  }
+
+  .home-subtitle {
+    margin-block-start: var(--space-2);
+    margin-block-end: 0;
+    font-size: var(--text-lg);
+    color: var(--fg-secondary);
+  }
+
+  .home-line {
+    margin: 0;
+    color: var(--fg-secondary);
+  }
+
+  .home-timeline-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-block-end: var(--space-4);
+  }
+
+  .home-timeline-title {
+    margin: 0;
+    font-size: var(--text-xl);
+    color: var(--fg-primary);
+  }
+
+  .home-timeline-subtitle {
+    margin: 0;
+    color: var(--fg-tertiary);
+    font-size: var(--text-sm);
+  }
+
+  .home-timeline-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+</style>

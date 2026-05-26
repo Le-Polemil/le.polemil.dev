@@ -1,0 +1,44 @@
+{
+  "jobs": [
+    {
+      "documentId": "z8lafeiybwm5pdrtgtxcnlh4",
+      "key": "artprice",
+      "title": "Full-Stack Developer",
+      "company": "Artprice",
+      "dateStart": "2018-05-14",
+      "dateEnd": "2019-10-20"
+    },
+    {
+      "documentId": "o7qq8f78xolp5z45995zzry6",
+      "key": "pentalog",
+      "title": "Full-Stack Developer",
+      "company": "Pentalog/Soluti",
+      "dateStart": "2019-10-21",
+      "dateEnd": "2021-06-04"
+    },
+    {
+      "documentId": "isg73ed1sl55q22v25rl8m2s",
+      "key": "abbeal",
+      "title": "Design Engineer",
+      "company": "Abbeal",
+      "dateStart": "2021-06-14",
+      "dateEnd": "2023-01-25"
+    },
+    {
+      "documentId": "szu93oupbcv5szfy8kkj3876",
+      "key": "freelance",
+      "title": "Freelance",
+      "company": "Polémil",
+      "dateStart": "2023-08-01",
+      "dateEnd": null
+    },
+    {
+      "documentId": "zu41dzx84uc3tb1zang7i050",
+      "key": "elao",
+      "title": "Lead front-end developer",
+      "company": "Elao_",
+      "dateStart": "2024-10-28",
+      "dateEnd": null
+    }
+  ]
+}

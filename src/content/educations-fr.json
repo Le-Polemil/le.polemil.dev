@@ -1,0 +1,18 @@
+{
+  "educations": [
+    {
+      "documentId": "hlp6tl28pagwd0f6h37s4tmy",
+      "key": "license",
+      "name": "Licence Générale Informatique",
+      "school": "UCBL",
+      "city": "Lyon"
+    },
+    {
+      "documentId": "zaejs2g3efxaz72gp3kjie6m",
+      "key": "iut",
+      "name": "IUT Informatique",
+      "school": "UCBL",
+      "city": "Bourg-en-Bresse"
+    }
+  ]
+}

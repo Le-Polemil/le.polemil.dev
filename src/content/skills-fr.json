@@ -1,0 +1,463 @@
+{
+  "skillCategories": [
+    {
+      "documentId": "ap1hr4vdv9o4js4crmavmgcn",
+      "key": "techs",
+      "name": "Technologies",
+      "subCategories": [
+        {
+          "id": "37086",
+          "name": "Langages",
+          "skills": [
+            {
+              "documentId": "q8m6dcxf5lnsn5b6ati6c2sj",
+              "key": "typescript",
+              "name": "TypeScript",
+              "level": "confident"
+            },
+            {
+              "documentId": "v5sjssrtl313lyakri84dq1k",
+              "key": "javascript",
+              "name": "JavaScript",
+              "level": "expert"
+            },
+            {
+              "documentId": "u9m2jtr39ceurr7maghqj2xv",
+              "key": "css",
+              "name": "CSS 3 (SASS, Stylus)",
+              "level": "expert"
+            },
+            {
+              "documentId": "kzi8gm83418dg9bhi2aypku5",
+              "key": "html",
+              "name": "HTML5",
+              "level": "confident"
+            },
+            {
+              "documentId": "pv6a07dhbv34cmwmpfd294xw",
+              "key": "php",
+              "name": "PHP",
+              "level": "confident"
+            },
+            {
+              "documentId": "qeqjcgzrmg2inkeay2kdx8dj",
+              "key": "ruby",
+              "name": "Ruby",
+              "level": "confident"
+            },
+            {
+              "documentId": "zbfkr398vpwvox14l64u75w5",
+              "key": "c++",
+              "name": "C++",
+              "level": "experienced"
+            },
+            {
+              "documentId": "rswez2c3yck4s59uh220ebew",
+              "key": "dart",
+              "name": "Dart",
+              "level": "willing_to_learn"
+            }
+          ]
+        },
+        {
+          "id": "37087",
+          "name": "Frameworks",
+          "skills": [
+            {
+              "documentId": "zsqypmnvcglcc0h8haepz3nk",
+              "key": "techs.react",
+              "name": "React JS",
+              "level": "expert"
+            },
+            {
+              "documentId": "lijo5rn8zfd7yvdfh4y2ipxr",
+              "key": "techs.next",
+              "name": "Next JS",
+              "level": "confident"
+            },
+            {
+              "documentId": "d2hcdkzflud9273y2nbe0pux",
+              "key": "techs.reactNative",
+              "name": "React-Native",
+              "level": "experienced"
+            },
+            {
+              "documentId": "a94v9abkynnn0p2duwi32n27",
+              "key": "vue",
+              "name": "Vue 2",
+              "level": "confident"
+            },
+            {
+              "documentId": "jkn3cq7nusmbzv3i3cze89pv",
+              "key": "svelte",
+              "name": "Svelte",
+              "level": "confident"
+            },
+            {
+              "documentId": "r2j1cux5oh6qizn1fa2sdx77",
+              "key": "flutter",
+              "name": "Flutter",
+              "level": "confident"
+            },
+            {
+              "documentId": "gra54l3kosnqnxx9gnk8ps9s",
+              "key": "astro",
+              "name": "Astro",
+              "level": "confident"
+            }
+          ]
+        },
+        {
+          "id": "37088",
+          "name": "Librairies UI",
+          "skills": [
+            {
+              "documentId": "ed2isnmg3l8dbksg52igbrts",
+              "key": "tailwind",
+              "name": "TailwindCSS",
+              "level": "confident"
+            },
+            {
+              "documentId": "asjcwtwbvicpxkqcim97u00h",
+              "key": "materialUI",
+              "name": "Material UI 4/5",
+              "level": "confident"
+            },
+            {
+              "documentId": "fogu0s1nfbbquybcgy16ux2w",
+              "key": "fluentUI",
+              "name": "Fluent UI",
+              "level": "experienced"
+            },
+            {
+              "documentId": "rdmnop07kiv8w2j7hlv3vepl",
+              "key": "bootstrap",
+              "name": "Bootstrap",
+              "level": "confident"
+            }
+          ]
+        },
+        {
+          "id": "37089",
+          "name": "APIs",
+          "skills": [
+            {
+              "documentId": "llb2zdhbquyfxuvzd4f9te4l",
+              "key": "apiRest",
+              "name": "API Rest",
+              "level": "confident"
+            },
+            {
+              "documentId": "rzv8yeb7im89tt66y80c6vs6",
+              "key": "graphql",
+              "name": "GraphQL",
+              "level": "confident"
+            }
+          ]
+        },
+        {
+          "id": "37090",
+          "name": "Serveurs applicatifs / Web",
+          "skills": [
+            {
+              "documentId": "rcez8ukc0a9je5zrcx88hjq2",
+              "key": "techs.strapi",
+              "name": "Strapi",
+              "level": "confident"
+            },
+            {
+              "documentId": "rgdbph4shsphnq429mswu6ge",
+              "key": "koa",
+              "name": "Koa (Strapi)",
+              "level": "confident"
+            },
+            {
+              "documentId": "bzxaql9n7dxri2g1y1j1ebuz",
+              "key": "symfony",
+              "name": "Symfony",
+              "level": "confident"
+            },
+            {
+              "documentId": "png5je58zemprogj3nftor2q",
+              "key": "sharepoint",
+              "name": "SharePoint",
+              "level": "experienced"
+            },
+            {
+              "documentId": "pfol80ks32w0v80yvq0lw51s",
+              "key": "node",
+              "name": "Node JS",
+              "level": "confident"
+            },
+            {
+              "documentId": "gojbm8c3ra85m7lco4ec6g1m",
+              "key": "express",
+              "name": "Express",
+              "level": "confident"
+            },
+            {
+              "documentId": "wvsq62xadcsgdvfx7azkyqh3",
+              "key": "discordjs",
+              "name": "Discord JS (bots)",
+              "level": "confident"
+            }
+          ]
+        },
+        {
+          "id": "37091",
+          "name": "Bases de données",
+          "skills": [
+            {
+              "documentId": "c7iryzn2r49zzqc1fnksotpa",
+              "key": "sql",
+              "name": "SQL (MariaDB / MySQL)",
+              "level": "confident"
+            },
+            {
+              "documentId": "jm74mr8mjjoxhzwbnmx9tden",
+              "key": "mongodb",
+              "name": "MongoDB (Mongoose)",
+              "level": "confident"
+            },
+            {
+              "documentId": "lnot2j5n1o138gtp9rhjgmtb",
+              "key": "postgre",
+              "name": "PostgreSQL",
+              "level": "beginner"
+            }
+          ]
+        },
+        {
+          "id": "37092",
+          "name": "Tests",
+          "skills": [
+            {
+              "documentId": "oxrovmbsuvjdhcqs46icxbhw",
+              "key": "cypress",
+              "name": "Cypress",
+              "level": "confident"
+            },
+            {
+              "documentId": "kuiu6q74to4tu2ns0uo8uiqn",
+              "key": "jest",
+              "name": "Jest",
+              "level": "confident"
+            },
+            {
+              "documentId": "vhietrkbw9oz82ikw6dwct9o",
+              "key": "mocha",
+              "name": "Mocha",
+              "level": "confident"
+            },
+            {
+              "documentId": "dk2v5kzb3a7btxgvl8iksehv",
+              "key": "factoryGirl",
+              "name": "FactoryGirl",
+              "level": "experienced"
+            }
+          ]
+        },
+        {
+          "id": "37093",
+          "name": "Autres",
+          "skills": [
+            {
+              "documentId": "kg4bq617oi91er6w4yjzbd6r",
+              "key": "webpack",
+              "name": "Webpack",
+              "level": "confident"
+            },
+            {
+              "documentId": "hv1m1qfo6p6coet6q2zfuar7",
+              "key": "vite",
+              "name": "Vite JS",
+              "level": "confident"
+            },
+            {
+              "documentId": "em4s3t9drgfvs2l324bbdsj2",
+              "key": "versioning.github",
+              "name": "Github",
+              "level": "confident"
+            },
+            {
+              "documentId": "akfxa2f6p1i1g0nbilwoie05",
+              "key": "versioning.gitlab",
+              "name": "Gitlab",
+              "level": "confident"
+            },
+            {
+              "documentId": "jtqb13m5jymy3dhp0g6l3zeg",
+              "key": "versioning.bitbucket",
+              "name": "Bitbucket",
+              "level": "confident"
+            },
+            {
+              "documentId": "zc7fwgnditou53vukkql2aoy",
+              "key": "jenkins",
+              "name": "Jenkins",
+              "level": "confident"
+            }
+          ]
+        },
+        {
+          "id": "37094",
+          "name": "Méthodologies",
+          "skills": [
+            {
+              "documentId": "mtx35l9qr8xxal6gwyjb5sp8",
+              "key": "method.scrum",
+              "name": "SCRUM",
+              "level": "confident"
+            },
+            {
+              "documentId": "j6ki1sfxfqguj9vpbql1d59x",
+              "key": "method.kanban",
+              "name": "KANBAN",
+              "level": "confident"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "documentId": "m42kyszmemeqsetdxloi9s3h",
+      "key": "knowHow",
+      "name": "Savoir-faire",
+      "subCategories": [
+        {
+          "id": "37097",
+          "name": "Je sais...",
+          "skills": [
+            {
+              "documentId": "fepw77iuw17tn72wcc715jik",
+              "key": "knowHow.develop.backoffice",
+              "name": "Développer un backoffice",
+              "level": "expert"
+            },
+            {
+              "documentId": "gg2tvh501ne6b8rqd4hjawz0",
+              "key": "knowHow.develop.internApp",
+              "name": "Développer une app interne",
+              "level": "expert"
+            },
+            {
+              "documentId": "fgzh6fvy7x3703n7a0wxtjs3",
+              "key": "knowHow.develop.dashboard",
+              "name": "Développer un dashboard",
+              "level": "experienced"
+            },
+            {
+              "documentId": "pvirbrs8nsnspm9cp2cppqew",
+              "key": "knowHow.develop.showcaseWebsite",
+              "name": "Développer un site vitrine",
+              "level": "confident"
+            },
+            {
+              "documentId": "kxlfkytre2bpth7olujj2rxl",
+              "key": "knowHow.develop.eshop",
+              "name": "Développer un site marchand",
+              "level": "confident"
+            },
+            {
+              "documentId": "f93syy6aqt5j59mjnzrd3vc9",
+              "key": "knowHow.develop.mobileApp",
+              "name": "Développer une app mobile",
+              "level": "experienced"
+            }
+          ]
+        },
+        {
+          "id": "37098",
+          "name": "Savoir-faire",
+          "skills": [
+            {
+              "documentId": "l3kc6hfr9qw8kp5ewvg2sfqv",
+              "key": "knowHow.maintainAndEvolveProject",
+              "name": "Maintenir et faire évoluer un projet",
+              "level": "confident"
+            },
+            {
+              "documentId": "oegzmm9wpk037e9q2arsqrsx",
+              "key": "knowHow.masteriseLogicLayer",
+              "name": "Maitriser la couche métier d'un projet",
+              "level": "expert"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "documentId": "iibnum6aw9e7aulho3fyuj5o",
+      "key": "softSkills",
+      "name": "Savoir-être",
+      "subCategories": [
+        {
+          "id": "37101",
+          "name": "Savoir-être",
+          "skills": [
+            {
+              "documentId": "vw9fgywq1wc4bydnszjdb0rp",
+              "key": "softSkills.groupWork",
+              "name": "Travailler en équipe de tout taille",
+              "level": "expert"
+            },
+            {
+              "documentId": "dbwrz8joa4u5cubfeis9vodd",
+              "key": "softSkills.communication",
+              "name": "Communiquer avec mes collègues",
+              "level": "confident"
+            },
+            {
+              "documentId": "gb42o85rzovmjo2g9t9io23f",
+              "key": "softSkills.adaptNeeds",
+              "name": "M'adapter au besoin",
+              "level": "expert"
+            },
+            {
+              "documentId": "j48czl0h70db4fpc2012666c",
+              "key": "softSkills.steppingBack",
+              "name": "Prendre du recul",
+              "level": "confident"
+            }
+          ]
+        },
+        {
+          "id": "37102",
+          "name": "Je sais...",
+          "skills": [
+            {
+              "documentId": "l8sysi59b01ucc37tdvo0po4",
+              "key": "softSkills.creative",
+              "name": "Être créatif et inventif",
+              "level": "expert"
+            },
+            {
+              "documentId": "fxqzkdceficjiqm9pcl6teoi",
+              "key": "softSkills.rigorousAndPrecise",
+              "name": "Être rigoureux et précis",
+              "level": "confident"
+            },
+            {
+              "documentId": "twhkduv4euqvpup7tly6bn3g",
+              "key": "softSkills.drivingForce",
+              "name": "Être force de proposition",
+              "level": "confident"
+            },
+            {
+              "documentId": "bf06ahuu1z2s3y2simxrwnrc",
+              "key": "softSkills.versatile",
+              "name": "Être versatile",
+              "level": "expert"
+            },
+            {
+              "documentId": "hydki2myqd9g3nj74vetq0d8",
+              "key": "softSkills.autonomous",
+              "name": "Être autonome",
+              "level": "experienced"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

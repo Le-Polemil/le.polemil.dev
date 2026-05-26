@@ -42,8 +42,8 @@ test.describe('InspectPanel (ticket #9)', () => {
 
     // Properties section
     await expect(panel.getByRole('heading', { name: 'PROPERTIES' })).toBeVisible();
-    await expect(panel.getByText('Lead front-end')).toBeVisible();
-    await expect(panel.getByText('Elao', { exact: true })).toBeVisible();
+    await expect(panel.getByText('Lead développeur front-end')).toBeVisible();
+    await expect(panel.getByText('Elao_', { exact: true })).toBeVisible();
 
     // Tokens section
     await expect(panel.getByRole('heading', { name: 'TOKENS' })).toBeVisible();

@@ -15,7 +15,9 @@ import { expect, test } from '@playwright/test';
 test.describe('Persona — Client (ticket #11)', () => {
   test('home page renders', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByRole('heading', { level: 1, name: 'polemil.dev' })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { level: 1, name: 'Paul-Émile Moreau' }).first(),
+    ).toBeVisible();
   });
 
   test.skip('Calendly link is reachable (smoke)', async ({ page }) => {
