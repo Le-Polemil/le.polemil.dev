@@ -1,0 +1,127 @@
+---
+/**
+ * AppNav — left-rail navigation (Figma 5:5).
+ *
+ * Structured eyebrow + items. Active state computed from `Astro.url.pathname`
+ * via `activeNavItem`. Each label is emitted twice (FR + EN, wrapped in
+ * `[lang]`) so the global CSS swap from `base.css` handles localization
+ * without a React island.
+ */
+import { NAV, activeNavItem } from '@/data/nav';
+
+const active = activeNavItem(Astro.url.pathname);
+---
+
+<nav class="app-nav" aria-label="Navigation principale">
+  {
+    NAV.map((section) => (
+      <section class="app-nav-section" aria-labelledby={`nav-eyebrow-${section.id}`}>
+        <h2 id={`nav-eyebrow-${section.id}`} class="app-nav-eyebrow">
+          <span lang="fr">{section.eyebrowFr}</span>
+          <span lang="en">{section.eyebrowEn}</span>
+        </h2>
+        <ul class="app-nav-list" role="list">
+          {section.items.map((item) => {
+            const isActive = item.id === active;
+            const label = (
+              <>
+                <span lang="fr">{item.labelFr}</span>
+                <span lang="en">{item.labelEn}</span>
+              </>
+            );
+            if (item.disabled || !item.href) {
+              return (
+                <li>
+                  <span class="app-nav-item" data-disabled="true" aria-disabled="true">
+                    {label}
+                  </span>
+                </li>
+              );
+            }
+            return (
+              <li>
+                <a
+                  class="app-nav-item"
+                  href={item.href}
+                  data-active={isActive ? 'true' : undefined}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))
+  }
+</nav>
+
+<style>
+  .app-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .app-nav-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .app-nav-eyebrow {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    line-height: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--fg-tertiary);
+  }
+
+  .app-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .app-nav-item {
+    display: block;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    line-height: 18px;
+    color: var(--fg-secondary);
+    text-decoration: none;
+    transition: color var(--duration-sm) var(--ease-out),
+      background-color var(--duration-sm) var(--ease-out);
+  }
+
+  a.app-nav-item:hover,
+  a.app-nav-item:focus-visible {
+    color: var(--fg-primary);
+    background: var(--bg-inset);
+  }
+
+  a.app-nav-item[data-active='true'] {
+    color: var(--accent);
+    background: var(--bg-inset);
+  }
+
+  .app-nav-item[data-disabled='true'] {
+    color: var(--fg-tertiary);
+    cursor: not-allowed;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app-nav-item {
+      transition: none;
+    }
+  }
+</style>

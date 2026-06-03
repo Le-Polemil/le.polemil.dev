@@ -7,6 +7,12 @@
  * When `selectable` is true, each card is wrapped in a React island that
  * dispatches to the `selectedItem` nanostore on click — picked up by
  * `<InspectPanel />`. Defaults to non-interactive cards.
+ *
+ * Layout : `grid auto-fit minmax(280px, 1fr)` — naturally renders 2×2 when
+ * the main column has room (≥ 580px including gap), falls back to 1×4
+ * (or 1×N) on narrower surfaces. Previous flex-wrap implementation forced
+ * a vertical stack as soon as cards (420px each) couldn't pair within a
+ * row, even with plenty of horizontal space left.
  */
 import ExperienceCard from '@/components/cv/ExperienceCard.tsx';
 import SelectableExperienceCard from '@/components/cv/SelectableExperienceCard.tsx';
@@ -33,28 +39,15 @@ const variants: ReadonlyArray<ExperienceCardVariant> = [
 ---
 
 <div class="experience-preview" aria-label="Preview des variants ExperienceCard">
-  <div class="experience-preview-row">
-    {
-      variants.slice(0, 2).map((v) =>
-        selectable ? (
-          <SelectableExperienceCard client:idle experience={experience} variant={v} />
-        ) : (
-          <ExperienceCard experience={experience} variant={v} />
-        ),
-      )
-    }
-  </div>
-  <div class="experience-preview-row">
-    {
-      variants.slice(2).map((v) =>
-        selectable ? (
-          <SelectableExperienceCard client:idle experience={experience} variant={v} />
-        ) : (
-          <ExperienceCard experience={experience} variant={v} />
-        ),
-      )
-    }
-  </div>
+  {
+    variants.map((v) =>
+      selectable ? (
+        <SelectableExperienceCard client:idle experience={experience} variant={v} />
+      ) : (
+        <ExperienceCard experience={experience} variant={v} />
+      ),
+    )
+  }
 </div>
 
 <style>
@@ -63,15 +56,9 @@ const variants: ReadonlyArray<ExperienceCardVariant> = [
     border: var(--border-1) solid var(--border-subtle);
     border-radius: var(--radius-md);
     padding: var(--space-6);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-4);
-  }
-
-  .experience-preview-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-4);
-    align-items: flex-start;
+    align-items: start;
   }
 </style>

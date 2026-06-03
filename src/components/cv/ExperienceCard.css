@@ -6,7 +6,11 @@
 
 .experience-card {
   display: flex;
-  inline-size: 420px;
+  /* Cards target 420 (Figma 15:2 / 15:20 / 15:41 / 15:48) but stay fluid
+     in tighter containers. Pairs with the auto-fit grid in
+     ExperiencePreview so 2×2 ↔ 1×N degrades on its own. */
+  inline-size: 100%;
+  max-inline-size: 420px;
   font-family: var(--font-sans);
   color: var(--fg-primary);
   margin: 0;

@@ -54,10 +54,15 @@ body {
   transform: translateY(0);
 }
 
-/* i18n runtime swap — hides the inactive language */
+/* i18n runtime swap — hides the inactive language.
+   `!important` is justified : Astro emits component-scoped CSS *after*
+   `base.css`, so any scoped `display:` on a `[lang]` wrapper would win
+   on source order at equal specificity (0,1,0). The swap is a "switch
+   off entire branch" intent, not a local layout decision, so the
+   override is the right blast radius. */
 :root[data-lang='fr'] [lang='en'],
 :root[data-lang='en'] [lang='fr'] {
-  display: none;
+  display: none !important;
 }
 
 ::selection {
