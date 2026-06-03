@@ -1,0 +1,87 @@
+/* ExperienceList — the actual /experiences page list of cards.
+   Driven by the templateOptions store : variant + accent + showStack. */
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.experience-list-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.experience-list-item {
+  display: flex;
+  view-transition-name: experience-card;
+}
+
+/* Each card sits in its own view-transition group so the browser can
+   morph individual items independently when the list expands. */
+.experience-list-item:nth-child(2) {
+  view-transition-name: experience-card-2;
+}
+.experience-list-item:nth-child(3) {
+  view-transition-name: experience-card-3;
+}
+.experience-list-item:nth-child(4) {
+  view-transition-name: experience-card-4;
+}
+.experience-list-item:nth-child(5) {
+  view-transition-name: experience-card-5;
+}
+
+/* Hide tech tags + the +N badge when showStack === false. */
+.experience-list[data-show-stack='false'] .experience-card-stack {
+  display: none;
+}
+
+/* === "Afficher plus" pill === */
+.experience-list-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.experience-list-pill {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 20px;
+  border-radius: 9999px;
+  border: var(--border-1) solid var(--accent);
+  background: var(--accent);
+  color: var(--fg-on-accent);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 16px;
+  cursor: pointer;
+  transition: transform var(--duration-sm) var(--ease-out), background var(--duration-sm)
+    var(--ease-out), box-shadow var(--duration-sm) var(--ease-out);
+  view-transition-name: experience-list-pill;
+}
+
+.experience-list-pill:hover,
+.experience-list-pill:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -4px color-mix(in oklab, var(--accent) 50%, transparent);
+}
+
+.experience-list-pill[data-state='expanded'] {
+  background: transparent;
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-list-pill {
+    transition: none;
+  }
+  .experience-list-pill:hover {
+    transform: none;
+  }
+}

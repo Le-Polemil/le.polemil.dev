@@ -67,7 +67,9 @@
   font-size: var(--text-xs);
   line-height: 16px;
   color: var(--fg-on-accent);
-  background: var(--accent-experience);
+  /* Was `--accent-experience` ; consumes `--accent` so per-page accent
+     + TemplateOptions overrides cascade correctly. */
+  background: var(--accent);
   flex-shrink: 0;
 }
 
@@ -216,7 +218,7 @@
   inline-size: 10px;
   block-size: 10px;
   border-radius: var(--radius-full);
-  background: var(--accent-timeline);
+  background: var(--accent);
 }
 
 .experience-card[data-variant='timeline'] .experience-card-body {
@@ -241,5 +243,5 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   line-height: 16px;
-  color: var(--accent-timeline);
+  color: var(--accent);
 }

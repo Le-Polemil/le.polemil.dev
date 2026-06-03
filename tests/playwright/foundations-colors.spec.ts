@@ -15,7 +15,9 @@ test.describe('Foundations/Colors (ticket #6)', () => {
 
   test('route /foundations/colors renders with the 5 groups', async ({ page }) => {
     await page.goto('/foundations/colors');
-    await expect(page.locator('body')).toHaveAttribute('data-page', 'foundations-colors');
+    // data-page moved from <body> to <html> in #41 so the inline accent
+    // override from TemplateOptions can win over the page selector.
+    await expect(page.locator('html')).toHaveAttribute('data-page', 'foundations-colors');
     await expect(page.getByRole('heading', { level: 1, name: 'Colors' })).toBeVisible();
     for (const group of ['Background', 'Border', 'Foreground', 'Accents — per page', 'Status']) {
       await expect(page.locator('section').filter({ hasText: group }).first()).toBeVisible();

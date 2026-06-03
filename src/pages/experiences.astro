@@ -1,0 +1,92 @@
+---
+import ExperienceList from '@/components/cv/ExperienceList.tsx';
+import '@/components/cv/ExperienceCard.css';
+import '@/components/cv/ExperienceList.css';
+import '@/components/primitives/Badge.css';
+import TemplateOptions from '@/components/system/TemplateOptions.tsx';
+import '@/components/system/TemplateOptions.css';
+import { EXPERIENCES_EN, EXPERIENCES_FR } from '@/data/experiences';
+import DocLayout from '@/layouts/DocLayout.astro';
+---
+
+<DocLayout title="Experiences — polemil.dev" page="experience">
+  <article class="experiences-page">
+    <header class="experiences-header" lang="fr">
+      <p class="experiences-eyebrow">Section</p>
+      <h1 class="experiences-title">Experiences</h1>
+      <p class="experiences-subtitle">
+        5 postes, un fil conducteur : le front-end. La carte affichée
+        s'adapte aux options de rendu choisies dans le panneau de droite.
+      </p>
+    </header>
+    <header class="experiences-header" lang="en">
+      <p class="experiences-eyebrow">Section</p>
+      <h1 class="experiences-title">Experiences</h1>
+      <p class="experiences-subtitle">
+        5 roles, one thread : the front-end. The displayed card adapts to
+        the render options picked in the right panel.
+      </p>
+    </header>
+
+    <section class="experiences-list-wrap" lang="fr">
+      <ExperienceList client:visible experiences={EXPERIENCES_FR} initialCount={1} />
+    </section>
+    <section class="experiences-list-wrap" lang="en">
+      <ExperienceList
+        client:visible
+        experiences={EXPERIENCES_EN}
+        initialCount={1}
+        showMoreFr="Afficher plus"
+        showMoreEn="Show more"
+        showLessFr="Afficher moins"
+        showLessEn="Show less"
+      />
+    </section>
+  </article>
+
+  <Fragment slot="inspect">
+    <TemplateOptions client:visible />
+  </Fragment>
+</DocLayout>
+
+<style>
+  .experiences-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding-block: var(--space-8);
+  }
+
+  .experiences-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .experiences-eyebrow {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--fg-tertiary);
+  }
+
+  .experiences-title {
+    margin: 0;
+    font-size: var(--text-3xl);
+    line-height: 1.1;
+    color: var(--fg-primary);
+  }
+
+  .experiences-subtitle {
+    margin: 0;
+    color: var(--fg-secondary);
+    max-inline-size: 60ch;
+  }
+
+  .experiences-list-wrap {
+    display: block;
+  }
+</style>
