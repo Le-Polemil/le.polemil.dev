@@ -87,20 +87,21 @@ export default function ExperienceCard({
       <div className="experience-card-top">
         <Avatar initial={e.initial} size={isExpanded ? 32 : 28} />
         <div className="experience-card-title-block">
-          {/* Title + subtitle pattern (shadcn accordion-style trigger).
-              Both default + expanded variants use the larger `md` size so
-              every card has a prominent header — matches the user-driven
-              redesign in #41. */}
-          <p className="experience-card-role-line" data-size="md">
+          <p className="experience-card-role-line" data-size={isExpanded ? 'md' : 'sm'}>
             {e.role} · {e.company}
           </p>
-          {e.subtitle ? <p className="experience-card-subtitle">{e.subtitle}</p> : null}
           <p className="experience-card-dates">{e.dates}</p>
         </div>
         {e.current ? <Badge variant="success">current</Badge> : null}
       </div>
 
-      {isExpanded ? <p className="experience-card-description">{e.description}</p> : null}
+      {/* Expanded renders `descriptionRest` (description minus first sentence)
+          to avoid duplicating the subtitle when a section header above the
+          card already shows the first sentence. Falls back to full
+          description if `descriptionRest` is empty. */}
+      {isExpanded ? (
+        <p className="experience-card-description">{e.descriptionRest || e.description}</p>
+      ) : null}
 
       <div className="experience-card-stack">
         {tagsToShow.map((t) => (

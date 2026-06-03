@@ -18,18 +18,29 @@ export interface Experience {
   current: boolean;
   /** Stack tags, mono uppercase-friendly. The default variant shows the first 3 + `+N`. */
   stack: ReadonlyArray<string>;
-  /** One-line subtitle ; the first sentence of `description`. Rendered
-   * under the title in the default + expanded variants, mirroring the
-   * shadcn accordion title/subtitle pattern. */
+  /** One-line subtitle — the first sentence of `description`. Rendered
+   * as a section header *above* each card on `/experiences` (shadcn
+   * doc-page pattern : title + descriptive subtitle, then the demo). */
   subtitle: string;
   /** Long description used by the `expanded` variant. */
   description: string;
+  /** Description minus the first sentence — rendered by the expanded
+   * variant so the first sentence (already shown as `subtitle` above
+   * the card on `/experiences`) isn't repeated inside the card. */
+  descriptionRest: string;
 }
 
-/** Extract the first sentence of a prose description for use as a subtitle. */
+/** Extract the first sentence of a prose description (the subtitle). */
 function firstSentence(text: string): string {
   const match = text.match(/^[^.!?]+[.!?]/);
   return match ? match[0].trim() : text;
+}
+
+/** Everything after the first sentence. Empty string if there's only one. */
+function restAfterFirstSentence(text: string): string {
+  const match = text.match(/^[^.!?]+[.!?]\s*/);
+  if (!match) return '';
+  return text.slice(match[0].length).trim();
 }
 
 interface RawJob {
@@ -136,6 +147,7 @@ function toExperience(job: RawJob, locale: 'fr' | 'en'): Experience {
     stack,
     subtitle: firstSentence(description),
     description,
+    descriptionRest: restAfterFirstSentence(description),
   };
 }
 

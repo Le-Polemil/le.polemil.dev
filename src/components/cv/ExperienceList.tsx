@@ -60,6 +60,18 @@ export default function ExperienceList({
       <ol className="experience-list-grid">
         {shown.map((experience) => (
           <li key={experience.id} className="experience-list-item">
+            {/* shadcn doc-section pattern : section heading (title +
+                descriptive subtitle) above the demo. The card itself
+                stays visually self-contained ; the header anchors the
+                section in the page outline. */}
+            <header className="experience-list-item-header">
+              <h2 className="experience-list-item-title">
+                {experience.role} · {experience.company}
+              </h2>
+              {experience.subtitle ? (
+                <p className="experience-list-item-subtitle">{experience.subtitle}</p>
+              ) : null}
+            </header>
             <ExperienceCard experience={experience} variant={opts.variant} />
           </li>
         ))}
