@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import AppNav from '@/components/system/AppNav.astro';
 import Header from '@/components/system/Header.astro';
 import InspectPanel from '@/components/system/InspectPanel.tsx';
 import '@/components/system/InspectPanel.css';
@@ -67,7 +68,9 @@ const {
       </header>
 
       <aside class="app-sidebar" aria-label="Navigation">
-        <slot name="sidebar" />
+        <slot name="sidebar">
+          <AppNav />
+        </slot>
       </aside>
 
       <main id="main" class="app-main">
