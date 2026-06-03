@@ -1,9 +1,10 @@
 ---
 import ExperienceList from '@/components/cv/ExperienceList.tsx';
 import '@/components/cv/ExperienceCard.css';
+import '@/components/cv/ExperienceDetail.css';
 import '@/components/cv/ExperienceList.css';
 import '@/components/primitives/Badge.css';
-import TemplateOptions from '@/components/system/TemplateOptions.tsx';
+import ExperiencesInspect from '@/components/system/ExperiencesInspect.tsx';
 import '@/components/system/TemplateOptions.css';
 import { EXPERIENCES_EN, EXPERIENCES_FR } from '@/data/experiences';
 import DocLayout from '@/layouts/DocLayout.astro';
@@ -45,7 +46,7 @@ import DocLayout from '@/layouts/DocLayout.astro';
   </article>
 
   <Fragment slot="inspect">
-    <TemplateOptions client:visible />
+    <ExperiencesInspect client:visible />
   </Fragment>
 </DocLayout>
 

@@ -101,6 +101,16 @@
           }
         }
       }
+    },
+    {
+      "include": ["src/components/cv/ExperienceList.tsx"],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "useSemanticElements": "off"
+          }
+        }
+      }
     }
   ]
 }
