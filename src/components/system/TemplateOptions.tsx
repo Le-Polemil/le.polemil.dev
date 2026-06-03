@@ -37,6 +37,22 @@ export default function TemplateOptions() {
     setMounted(true);
   }, []);
 
+  // Drive `--main-accent` at the root level so the chosen accent
+  // propagates everywhere — sidenav active state, badges, ExperienceCard
+  // internals, etc. The inline style on <html> beats the
+  // `html[data-page="..."]` selector by specificity. Cleared on
+  // unmount so navigating away from /experiences reverts to the
+  // page-default accent.
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const preset = ACCENT_PRESETS.find((p) => p.id === opts.accent);
+    if (!preset) return;
+    document.documentElement.style.setProperty('--main-accent', `var(${preset.cssVar})`);
+    return () => {
+      document.documentElement.style.removeProperty('--main-accent');
+    };
+  }, [opts.accent]);
+
   return (
     <div className="template-options" data-hydrated={mounted ? 'true' : 'false'}>
       <section className="template-options-section" aria-label="Variant">

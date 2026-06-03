@@ -156,31 +156,39 @@
   }
 }
 
-/* === Per-page accent — set on <body data-page="..."> === */
+/* === Per-page accent — set on <html data-page="..."> ===
+   The cascade is intentionally two-layered :
+     `--main-accent` is the *intent* (per-page default ; overridable by
+     features like TemplateOptions via an inline style on <html>)
+     `--accent` is the *consumed* token — components only read this.
+   Declared on `<html>` (not `<body>`) so an inline `--main-accent` on
+   the same element can win without needing `!important` ; an
+   ancestor-level inline style is the simplest cascade override. */
 :root {
-  --accent: var(--accent-default);
+  --main-accent: var(--accent-default);
+  --accent: var(--main-accent);
 }
-body[data-page='experience'] {
-  --accent: var(--accent-experience);
+html[data-page='experience'] {
+  --main-accent: var(--accent-experience);
 }
-body[data-page='project'] {
-  --accent: var(--accent-project);
+html[data-page='project'] {
+  --main-accent: var(--accent-project);
 }
-body[data-page='skill'] {
-  --accent: var(--accent-skill);
+html[data-page='skill'] {
+  --main-accent: var(--accent-skill);
 }
-body[data-page='contact'] {
-  --accent: var(--accent-contact);
+html[data-page='contact'] {
+  --main-accent: var(--accent-contact);
 }
-body[data-page='about'] {
-  --accent: var(--accent-about);
+html[data-page='about'] {
+  --main-accent: var(--accent-about);
 }
-body[data-page='timeline'] {
-  --accent: var(--accent-timeline);
+html[data-page='timeline'] {
+  --main-accent: var(--accent-timeline);
 }
 /* Foundations: no accent — neutral identity */
-body[data-page^='foundations'] {
-  --accent: var(--fg-primary);
+html[data-page^='foundations'] {
+  --main-accent: var(--fg-primary);
 }
 
 /* === Derived accent surfaces — interpolated via color-mix(in oklch) ===

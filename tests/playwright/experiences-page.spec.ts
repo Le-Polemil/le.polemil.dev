@@ -63,7 +63,9 @@ test.describe('Experiences page (ticket #41)', () => {
 
   test('accent picker swaps the active swatch + the cascaded --accent', async ({ page }) => {
     await page.goto('/experiences');
-    const list = await hydratedList(page);
+    // Wait for the list island to hydrate so the right panel options
+    // are guaranteed to be reactive too (both islands share the store).
+    await hydratedList(page);
     const options = await hydratedOptions(page);
 
     // Initially the "experience" swatch is active
@@ -82,20 +84,15 @@ test.describe('Experiences page (ticket #41)', () => {
     await expect(skillSwatch).toHaveAttribute('data-active', 'true');
     await expect(experienceSwatch).toHaveAttribute('data-active', 'false');
 
-    // The cascaded --accent on the list wrapper resolves to the same RGB
-    // as --accent-skill. Resolve both via a sacrificial probe div so both
-    // values come back in the same normalized rgb() form.
-    const [accentRgb, skillRgb] = await list.evaluate((el) => {
-      const probe = document.createElement('div');
-      el.appendChild(probe);
-      probe.style.color = getComputedStyle(el).getPropertyValue('--accent').trim();
-      const a = getComputedStyle(probe).color;
-      probe.style.color = getComputedStyle(el).getPropertyValue('--accent-skill').trim();
-      const b = getComputedStyle(probe).color;
-      probe.remove();
-      return [a, b];
-    });
-    expect(accentRgb).toBe(skillRgb);
+    // The chosen accent is set as an inline `--main-accent` on <html>
+    // (drives `--accent` for every consumer on the page — sidenav,
+    // ExperienceCard internals, etc.). Poll because the useEffect fires
+    // after React's commit, which may land a tick after the click.
+    await expect
+      .poll(async () =>
+        page.evaluate(() => document.documentElement.style.getPropertyValue('--main-accent')),
+      )
+      .toBe('var(--accent-skill)');
   });
 
   test('show-stack toggle hides the tags', async ({ page }) => {

@@ -1,8 +1,8 @@
 import ExperienceCard from '@/components/cv/ExperienceCard';
 import type { Experience } from '@/data/experiences';
-import { ACCENT_PRESETS, templateOptions } from '@/stores/template-options';
+import { templateOptions } from '@/stores/template-options';
 import { useStore } from '@nanostores/react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Props {
   experiences: ReadonlyArray<Experience>;
@@ -39,11 +39,6 @@ export default function ExperienceList({
     setMounted(true);
   }, []);
 
-  const accentVar = useMemo(() => {
-    const preset = ACCENT_PRESETS.find((p) => p.id === opts.accent);
-    return preset?.cssVar ?? '--accent-experience';
-  }, [opts.accent]);
-
   const shown = expanded ? experiences : experiences.slice(0, initialCount);
   const hasMore = experiences.length > initialCount;
 
@@ -61,7 +56,6 @@ export default function ExperienceList({
       className="experience-list"
       data-show-stack={opts.showStack ? 'true' : 'false'}
       data-hydrated={mounted ? 'true' : 'false'}
-      style={{ '--accent': `var(${accentVar})` } as React.CSSProperties}
     >
       <ol className="experience-list-grid">
         {shown.map((experience) => (
