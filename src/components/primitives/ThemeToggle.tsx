@@ -25,6 +25,10 @@ function applyTheme(next: Theme) {
   }
 }
 
+/**
+ * ThemeToggle — iOS-style switch between light (sun, left) and
+ * dark (moon, right). Knob slides to the active side.
+ */
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>('light');
   const [mounted, setMounted] = useState(false);
@@ -53,9 +57,13 @@ export default function ThemeToggle() {
       data-theme-state={theme}
       data-hydrated={mounted ? 'true' : 'false'}
     >
-      <Sun size={14} aria-hidden="true" className="theme-toggle-icon theme-toggle-sun" />
+      <span className="theme-toggle-icon-slot" data-side="left">
+        <Sun size={12} aria-hidden="true" />
+      </span>
+      <span className="theme-toggle-icon-slot" data-side="right">
+        <Moon size={12} aria-hidden="true" />
+      </span>
       <span className="theme-toggle-knob" aria-hidden="true" />
-      <Moon size={14} aria-hidden="true" className="theme-toggle-icon theme-toggle-moon" />
     </button>
   );
 }
