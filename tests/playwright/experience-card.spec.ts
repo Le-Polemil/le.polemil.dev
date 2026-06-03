@@ -34,7 +34,10 @@ test.describe('ExperienceCard (ticket #7)', () => {
   test('expanded variant — description + full stack', async ({ page }) => {
     const card = page.locator('.experience-card[data-variant="expanded"]');
     await expect(card.locator('.experience-card-description')).toBeVisible();
-    await expect(card.locator('.experience-card-description')).toContainText(/J'intègre Elao/);
+    // Expanded variant now renders `descriptionRest` (description minus
+    // its first sentence) — the first sentence is shown above the card
+    // as the section subtitle on /experiences. Match on the 2nd sentence.
+    await expect(card.locator('.experience-card-description')).toContainText(/En parallèle/);
     for (const tag of ['react', 'astro', 'typescript', 'testing', 'a11y']) {
       await expect(card.getByText(tag, { exact: true })).toBeVisible();
     }
