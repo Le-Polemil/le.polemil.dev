@@ -18,8 +18,18 @@ export interface Experience {
   current: boolean;
   /** Stack tags, mono uppercase-friendly. The default variant shows the first 3 + `+N`. */
   stack: ReadonlyArray<string>;
+  /** One-line subtitle ; the first sentence of `description`. Rendered
+   * under the title in the default + expanded variants, mirroring the
+   * shadcn accordion title/subtitle pattern. */
+  subtitle: string;
   /** Long description used by the `expanded` variant. */
   description: string;
+}
+
+/** Extract the first sentence of a prose description for use as a subtitle. */
+function firstSentence(text: string): string {
+  const match = text.match(/^[^.!?]+[.!?]/);
+  return match ? match[0].trim() : text;
 }
 
 interface RawJob {
@@ -124,6 +134,7 @@ function toExperience(job: RawJob, locale: 'fr' | 'en'): Experience {
     startYear: job.dateStart.slice(0, 4),
     current: job.dateEnd === null,
     stack,
+    subtitle: firstSentence(description),
     description,
   };
 }
