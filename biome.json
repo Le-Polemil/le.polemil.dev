@@ -91,6 +91,16 @@
           }
         }
       }
+    },
+    {
+      "include": ["src/components/system/TemplateOptions.tsx"],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "useSemanticElements": "off"
+          }
+        }
+      }
     }
   ]
 }

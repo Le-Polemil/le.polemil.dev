@@ -53,20 +53,25 @@ test.describe('Visual fixes (ticket #39)', () => {
     // still in the DOM but `display:none`. Only assert visibility at desktop.
     test.skip(testInfo.project.name !== 'chromium', 'mobile shell hides the desktop sidebar');
 
-    await page.goto('/components/experience');
+    // /experiences is the section page that ships with #41 (the
+    // sidebar links there). /components/experience is now unlinked but
+    // still routable as a dev surface (Code / Props tabs).
+    await page.goto('/experiences');
 
     const nav = page.locator('nav.app-nav');
     await expect(nav).toBeVisible();
 
-    // Three sections from Figma 5:5
+    // Three sections from Figma 5:5 — header stays "Composants" (the
+    // angle-bracket "tag" style is the visual identity of the design
+    // system nav, per the user's intent in #41).
     await expect(nav.getByRole('heading', { name: 'Composants' })).toBeVisible();
     await expect(nav.getByRole('heading', { name: 'Foundations' })).toBeVisible();
     await expect(nav.getByRole('heading', { name: 'Patterns' })).toBeVisible();
 
-    // Active state on /components/experience
+    // Active state on /experiences
     const activeLink = nav.locator('a.app-nav-item[data-active="true"]');
     await expect(activeLink).toHaveCount(1);
-    await expect(activeLink).toHaveAttribute('href', '/components/experience');
+    await expect(activeLink).toHaveAttribute('href', '/experiences');
     await expect(activeLink).toHaveAttribute('aria-current', 'page');
   });
 });
