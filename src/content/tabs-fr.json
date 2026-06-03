@@ -1,0 +1,52 @@
+{
+  "tabs": [
+    {
+      "documentId": "uy6x4hy7tymkiiwccx44eece",
+      "order": -1,
+      "key": "educations",
+      "label": "Formations",
+      "icon": "school",
+      "url": "/educations"
+    },
+    {
+      "documentId": "b2jetm4id1zxpld8pzg1eysm",
+      "order": -1,
+      "key": "hobbies",
+      "label": "Passions",
+      "icon": "history_edu",
+      "url": "/hobbies"
+    },
+    {
+      "documentId": "c2ymqyl24wub8xuguk4a6w9u",
+      "order": 0,
+      "key": "profile",
+      "label": "Profil",
+      "icon": "face",
+      "url": "/"
+    },
+    {
+      "documentId": "grtvyu1w3sl7d8ewjb2bgu7k",
+      "order": 1,
+      "key": "stack",
+      "label": "Compétences",
+      "icon": "lightbulb",
+      "url": "/stack"
+    },
+    {
+      "documentId": "l55wgs77im408sqwgw03btes",
+      "order": 2,
+      "key": "timeline",
+      "label": "Exp. Pros",
+      "icon": "work",
+      "url": "/timeline"
+    },
+    {
+      "documentId": "sl4ui1zdmpc9a6gsstoar8fl",
+      "order": 3,
+      "key": "projects",
+      "label": "Projets",
+      "icon": "construction",
+      "url": "/projects"
+    }
+  ]
+}

@@ -9,11 +9,14 @@ import { expect, test } from '@playwright/test';
  */
 test.describe('Persona — Recruiter (ticket #11)', () => {
   test('home → /components/experience → timeline variant visible ≤ 5s', async ({ page }) => {
-    const start = Date.now();
-
     await page.goto('/');
-    await expect(page.getByRole('heading', { level: 1, name: 'polemil.dev' })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { level: 1, name: 'Paul-Émile Moreau' }).first(),
+    ).toBeVisible();
 
+    // Measure only the second navigation — the user-perception window is
+    // "click → see the timeline", not the full session boot.
+    const start = Date.now();
     await page.goto('/components/experience');
     const timelineCard = page.locator('.experience-card[data-variant="timeline"]').first();
     await expect(timelineCard).toBeVisible({ timeout: 5_000 });

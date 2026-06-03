@@ -1,0 +1,220 @@
+{
+  "projects": [
+    {
+      "documentId": "j9rd9ml0g4k38twjfrrf5ds1",
+      "key": "cv2",
+      "name": "cV2 - Refonte du CV",
+      "description": "J'ai entièrement repensé et redessiné mon premier CV en lui donnant une allure moderne, élégante et interactive. Cette refonte met en valeur mes compétences grâce à un design soigné et des animations subtiles qui captivent l'attention, tout en offrant une navigation fluide et agréable.",
+      "link": "https://polemil.dev",
+      "order": 1
+    },
+    {
+      "documentId": "os550raflcafza358ch9psps",
+      "key": "cv",
+      "name": "CV website",
+      "description": "Mon premier CV, bien que plus sobre et simple, reste un outil efficace pour présenter mes compétences. Il est disponible en trois langues : français, anglais et russe, assurant une accessibilité internationale. Bien que le design soit moins raffiné, il remplit parfaitement son rôle en communiquant clairement mon parcours professionnel.",
+      "link": "https://cv.bhuumi.land",
+      "order": 2
+    },
+    {
+      "documentId": "yw4h9eizuupdfd7a1r2x0pl0",
+      "key": "bhuumi",
+      "name": "A showcase site for novels",
+      "description": "Bhuumi.land est un site que j'ai conçu pour partager mes propres histoires, une sorte de vitrine de mes nouvelles et romans. Un espace immersif pour les amateurs de récits. Le projet est temporairement en pause car je me concentre sur l'écriture de mes livres, notamment du premier, \"Makō\". Ce site me permettra, une fois les premiers ouvrages terminés, de communiquer et échanger avec les lecteurs sur le monde que j'ai créé.",
+      "link": "https://bhuumi.land",
+      "order": 3
+    },
+    {
+      "documentId": "ysavls46u5a2eujzzpb8psuk",
+      "key": "cultura",
+      "name": "Refonte de l'app interne chez Cultura",
+      "description": "Au sein de Cultura, j'ai conduit la refonte de leur application interne destinée aux magasiniers, en passant d'une version Android native à une solution basée sur React et React-Native. Ce projet a permis d'améliorer l'efficacité, la performance et l'expérience utilisateur, en offrant une application plus moderne et polyvalente pour les équipes en magasin, ainsi qu'un support web et mobile simultanément.",
+      "link": "https://www.cultura.com/",
+      "order": 4
+    },
+    {
+      "documentId": "p4aokk27sfh1s9n9a54o2ram",
+      "key": "makeorg",
+      "name": "Concertations Make.org",
+      "description": "J'ai conçu le module de concertations de Make.org, une plateforme où les utilisateurs peuvent participer à des sondages et discussions visant à améliorer la société. Ce projet, réalisé du back-end au front-end en totale autonomie, a permis de créer un espace interactif et engageant pour favoriser la participation citoyenne. La passionnante difficulté d'avoir à faire à de nombreuses technologies que je découvrais à ce moment là (Next, TypeScript, Strapi, i18n), et ce,  sans collègue pour me guider, était vraiment stimulante bien qu'éreintante sur la durée.",
+      "link": "https://make.org/FR/browse/consultations/page/1",
+      "order": 5
+    },
+    {
+      "documentId": "ytw8jfx36ntxxiq7twhtene0",
+      "key": "medicofi",
+      "name": "Medicofi",
+      "description": "Le projet Medicofi s'est articulé autour de trois sous-projets majeurs pour améliorer les services aux mamans : d'abord, une application interne destinée à numériser toutes les démarches administratives, y compris celles contenant des données médicales sensibles. Ensuite, une application web pour les conseillères intervenant à domicile, facilitant leur travail auprès des futures ou jeunes mamans. Enfin, une application dédiée aux mamans elles-mêmes, leur permettant de commander en ligne tire-laits et accessoires, offrant ainsi une expérience fluide et pratique.",
+      "link": "https://tire-lait-express.fr/",
+      "order": 6
+    },
+    {
+      "documentId": "opvz76iegnpu7i6ug73wv1rw",
+      "key": "cgt",
+      "name": "Sondages internes CGT",
+      "description": "Ce projet a consisté à développer un système de sondages internes pour la CGT, où la complexité résidait dans la gestion des multiples rôles et des niveaux d'accès. Chaque utilisateur devait être rigoureusement catégorisé : certains pouvaient voir le sondage, d'autres y répondre, d'autres encore accéder aux résultats, tandis que d'autres n'avaient aucun accès. La diversité des rôles au sein de la CGT a rendu ce projet particulièrement délicat et technique.",
+      "link": null,
+      "order": 7
+    },
+    {
+      "documentId": "jzlmlvz1mpw1ravg3pweflz3",
+      "key": "artprice",
+      "name": "Artprice",
+      "description": "Au sein d'Artprice, ma première expérience pro., j'ai pu me former à React et Redux afin d'aider dans la migration du site de cotation d'art vers React. Cette formation, ainsi que l'appréhension et l'intégration de la grande couche métier du projet, c'est faite sur au fil des premiers mois, et m'ont permit en parallèle de contribuer à l'évolution de divers projets internes. Ces évolutions impliquaient régulièrement de gérer une codebase avec une dette technique significative. J'ai également développé le module des événements pour les enchères à venir, en couvrant l'ensemble du processus depuis la migration de la base de données jusqu'à l'implémentation du front sur le site.",
+      "link": "https://fr.artprice.com/",
+      "order": 8
+    },
+    {
+      "documentId": "uvksclf5xx3fxxdfn1cfy3co",
+      "key": "muejs",
+      "name": "MueJS",
+      "description": "MueJS est une bibliothèque UI que j'ai commencée en 2018, visant à appliquer les principes de l'Atomic Design en CSS. J'ai également créé une lib de composants UX en React, utilisant la lib SASS. Ce projet personnel visait à populariser une approche structurée du design, similaire à ce que Tailwind CSS propose aujourd'hui. Bien que Tailwind CSS se soit popularisé peu après et ait surpassé mon approche (notamment sur l'optimisation du CSS généré), je suis tout de même fier du travail accompli, ayant démarré MueJS avec une vision novatrice pour l'époque, avec seulement un mois d'expérience pro. Le projet a été maintenu jusqu'en 2021, l'utilisant dans mes chacun de mes autres projets perso, et évoluant à mon rythme libre avant que je ne découvre Tailwind CSS, qui offrait une solution plus raffinée et plus largement adoptée.",
+      "link": "https://github.com/mue-js",
+      "order": 10
+    },
+    {
+      "documentId": "bb69t6hdgyjo8qwfwuf4mky8",
+      "key": "krowns",
+      "name": "KROWNS",
+      "description": "KROWNS est un e-shop dédié à la vente de couronnes, broches et pendentifs. Initialement axé sur la revente de bijoux, le projet vise également à introduire une catégorie \"fait main\" pour proposer des créations artisanales personnelles. J'ai déjà designé plusieurs couronnes, intégrant des techniques telles que la sculpture sur bois et le Wire Wrap, pour offrir des pièces uniques. Ces bijoux visent à populariser le port de couronnes esthétiques et modernes, dénuées de toute connotation royale. Avec KROWNS, je souhaite offrir des accessoires uniques qui allient élégance et originalité.",
+      "link": null,
+      "order": 11
+    },
+    {
+      "documentId": "kkdsj3reu2jpavj1pqk3cehc",
+      "key": "sandbox",
+      "name": "Portfolio",
+      "description": "SandBox est mon ancien portfolio dédié aux tests et expérimentations en CSS. Ce projet comprend diverses démonstrations telles que l'utilisation de la propriété scroll-snap pour un défilement fluide, un effet de texte néon transformé en logo, un affichage dynamique de cartes pour un TCG, et des animations 3D en pur CSS grâce à la propriété perspective, permettant de visualiser et d'ouvrir des livres virtuels. SandBox reflète mon exploration créative et technique des capacités du CSS.",
+      "link": "https://sandbox.polemil.dev",
+      "order": 12
+    },
+    {
+      "documentId": "ycdde15s6acv0flypdzx2yxj",
+      "key": "cssarticles",
+      "name": "CSS Articles",
+      "description": "Tech article series I write for the Elao blog around modern CSS features. Three articles published so far, more in the pipeline. The work combines active tech watch, POC experimentation, and clear write-ups for a front-end developer audience.",
+      "link": "https://www.elao.com/blog",
+      "order": 13
+    },
+    {
+      "documentId": "lj7wte1bullpe1663p4ldxan",
+      "key": "meetup",
+      "name": "CSS best practices meetup",
+      "description": "Lors de ce meet-up réalisé début 2020, j'ai présenté l'architecture Atomic CSS et ses avantages pour une gestion efficace des styles. J'ai également partagé une série de nouveaux conseils CSS, illustrant l'utilisation innovante de récentes propriétés CSS. Cet événement a permis d'éclairer les participants sur les meilleures pratiques et les nouveautés du langage CSS, offrant ainsi des insights précieux pour améliorer leurs projets web. Je souhaitais également me challenger sur ma prise de parole en publique, afin d'affronter ma timidité, car j'ai toujours affronté mes points de blocages (par exemple, j'ai fait du parkour et de l'escalade pour combattre mon vertige).",
+      "link": "https://docs.google.com/presentation/d/1NIk0ccGJK8D_y-aYbkXAeu2K3yzSwVOB/edit?usp=sharing&ouid=117729629120663191417&rtpof=true&sd=true",
+      "order": 15
+    },
+    {
+      "documentId": "bgq4crkku3xoaw0v58g6q1uj",
+      "key": "books",
+      "name": "Fantasy writing",
+      "description": "Je suis en train de créer un monde fantasy peuplé de créatures fascinantes et intrigantes. Mon premier roman en cours, Makō, raconte l'histoire poignante d'un requin anthropomorphisé dont le destin tragique le pousse à traquer l'assassin de celui qu'il considère comme un père. Ce projet représente une aventure littéraire où se mêlent mystère, émotions profondes et exploration d'un univers imaginatif.",
+      "link": null,
+      "order": 18
+    },
+    {
+      "documentId": "ywixci1hri4f937k4r2y0id2",
+      "key": "drawing",
+      "name": "Dessin et Chara Design",
+      "description": "Ma passion pour le dessin se concentre notamment sur la création de personnages, avec un style artistique que j'ai récemment fait évolué vers une esthétique inspirée des BD franco-belges et des couleurs évoquant l'univers de Ghibli. J'aime particulièrement dessiner des personnages, souvent des animaux anthropomorphes, mais depuis peu, j'aime également faire des paysages, surement inspirés par les nombreuses vidéos de Bob Ross que je regarde pour dormir. Mettre à l'épreuve mes compétences artistiques afin de les développer continuellement est un réel moteur.",
+      "link": "https://bo.polemil.dev/uploads/bekansabo_4123821437.jpg",
+      "order": 19
+    },
+    {
+      "documentId": "ilg5ek79m0gzf3o5h7nngu70",
+      "key": "mao",
+      "name": "MAO - Composition musicale orchestrale",
+      "description": "Avec un ami, je compose des morceaux de musique orchestrale en utilisant des outils de musique assistée par ordinateur (MAO). Notre première composition est déjà disponible, illustrant notre passion pour la création de paysages sonores riches et immersifs. Ce projet reflète notre engagement envers l'art musical et notre exploration des possibilités créatives offertes par la MAO. (Nous n'utilisons pas d'IA tel que SUNO, nous composons nous même !)",
+      "link": "https://www.youtube.com/watch?v=l4-yqrj3Cdo",
+      "order": 20
+    },
+    {
+      "documentId": "v03vlqxxyfn5hqiv160077l8",
+      "key": "langs",
+      "name": "Become trilingual in French, English and Russian",
+      "description": "Currently confirmed English and notions of Russian",
+      "link": null,
+      "order": 21
+    },
+    {
+      "documentId": "fvjsapjgi3lig44h9hp3b00y",
+      "key": "tcg",
+      "name": "TCG creation",
+      "description": "Avec un ami (le même que pour la MAO), nous avons développé un jeu de cartes à collectionner (TCG), créant plus de 300 cartes pour les deux premières générations. Le projet visait d'avantages de générations, chacune ayant au moins trois mécaniques liés à différents éléments. Nous visons à concevoir un univers avec une quinzaine d'éléments, chacun ayant 3 à 4 mécaniques distinctes. Cependant, le principal obstacle a été l'illustration : avec un coût élevé en temps ou en argent, et mes compétences en illustration ne suffisant pas à garantir un rendu professionnel, nous avons décidé de mettre le projet en pause pour l'instant.",
+      "link": null,
+      "order": 22
+    },
+    {
+      "documentId": "iq6qwyr2hy8m2nm12qeihozo",
+      "key": "boardgame",
+      "name": "Boardgame",
+      "description": "A hidden-role party game in the spirit of Mascarade, Coup or Heroes Love to Lie, set in the Bhuumi universe. The game is built directly as a web app so it can be playtested in real sessions while it's being designed, before any physical version. TypeScript / Supabase, pnpm monorepo.",
+      "link": null,
+      "order": 23
+    },
+    {
+      "documentId": "xys1qlpks3m5q9s32xlsf5de",
+      "key": "colibri",
+      "name": "Colibri",
+      "description": "Personal project I kicked off to practice Figma. Colibri is a mobile-first app that helps you track, keep up and celebrate your resolutions throughout the year. Built as a React/Vite + Supabase monorepo.",
+      "link": null,
+      "order": 24
+    },
+    {
+      "documentId": "hdks9zkzf1hox2u62rtzgezo",
+      "key": "viewtransition",
+      "name": "View Transition",
+      "description": "Small demo exploring the capabilities of the browser's View Transition API in a React SPA. Smooth route animations with no third-party library — pure native web APIs.",
+      "link": null,
+      "order": 25
+    },
+    {
+      "documentId": "z1bs4o5hgcw3bqeayb4exaot",
+      "key": "ansara",
+      "name": "Ansara",
+      "description": "Client app built at Elao for Ansara Pharmacare. The tool lets non-local-speaking patients and healthcare professionals communicate effectively, leveraging translated content and guided flows.",
+      "link": null,
+      "order": 26
+    },
+    {
+      "documentId": "kiwa7brm84lugvbadp5lw5uc",
+      "key": "cockpit360",
+      "name": "Cockpit 360",
+      "description": "Client platform built at Elao. Turborepo monorepo combining a React/Vite client, a GraphQL Yoga server and shared packages. Goal: bring an organization's piloting, data and reporting into a single UI.",
+      "link": null,
+      "order": 27
+    },
+    {
+      "documentId": "sgmtge8xl34x3oc9hje74nq4",
+      "key": "miooz",
+      "name": "Miooz (Musique & Music)",
+      "description": "Client platform (Elao) for music licensing aimed at filmmakers, rebranded as Miooz. Track catalogue, advanced search, booking and contract management. Server-side rendered React front, Symfony back-office and API.",
+      "link": "https://www.miooz.com/",
+      "order": 28
+    },
+    {
+      "documentId": "uuuueoffdnk8zl5ntakcc7gk",
+      "key": "panneaupocket",
+      "name": "Panneau Pocket — SAG",
+      "description": "Client project (Elao): a website factory for municipalities using PanneauPocket. Headless Strapi centralizes content (pages, menus, themes) and an Astro static-site generator ships fast websites per municipality.",
+      "link": "https://www.panneaupocket.com/",
+      "order": 29
+    },
+    {
+      "documentId": "w2dwax0igt95vew5kt5y6qoj",
+      "key": "sunzil",
+      "name": "Sunzil Solae",
+      "description": "Client app (Elao) for Sunzil. Solae lets installers simulate a photovoltaic setup in the French overseas territories and produce a structured quote, handling local regulatory and fiscal specifics. React front, Symfony GraphQL API.",
+      "link": "https://www.sunzil.com/",
+      "order": 30
+    },
+    {
+      "documentId": "lv59dj02l0goczpgchb96muj",
+      "key": "unaya",
+      "name": "UNAYA",
+      "description": "Personal project: a calendar app where you log daily activities and their impact — positive or negative — on your mood. Over time the tool surfaces which activities drain your energy or affect your mental health, and which lift you up. Built on React/Vite + Supabase with a CLI.",
+      "link": "www.unaya-yourwaytohealth.fr",
+      "order": 31
+    }
+  ]
+}

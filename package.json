@@ -21,6 +21,7 @@
     "lh": "lhci autorun",
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build -o storybook-static",
+    "fetch-content": "tsx scripts/fetch-content.ts",
     "prepare": "simple-git-hooks"
   },
   "simple-git-hooks": {
@@ -49,6 +50,7 @@
     "@types/react-dom": "^19.0.0",
     "lightningcss": "^1.32.0",
     "simple-git-hooks": "^2.11.0",
-    "storybook": "^10.3.6"
+    "storybook": "^10.3.6",
+    "tsx": "^4.22.3"
   }
 }

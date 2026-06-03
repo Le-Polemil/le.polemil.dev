@@ -1,0 +1,18 @@
+{
+  "educations": [
+    {
+      "documentId": "hlp6tl28pagwd0f6h37s4tmy",
+      "key": "license",
+      "name": "Computer Science License",
+      "school": "UCBL",
+      "city": "Lyon"
+    },
+    {
+      "documentId": "zaejs2g3efxaz72gp3kjie6m",
+      "key": "iut",
+      "name": "Computer Science University Institute",
+      "school": "UCBL",
+      "city": "Bourg-en-Bresse"
+    }
+  ]
+}
