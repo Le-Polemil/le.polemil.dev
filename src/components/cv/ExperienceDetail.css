@@ -1,0 +1,142 @@
+/* ExperienceDetail — right-rail panel on /experiences when an
+   experience is selected. Mirrors the visual contract of InspectPanel
+   (#9) — bordered sections, mono eyebrows — so the two right-rail
+   modes feel consistent. */
+
+.experience-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.experience-detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.experience-detail-head-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 0 0;
+  min-inline-size: 0;
+}
+
+.experience-detail-eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--text-2xs);
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--fg-tertiary);
+}
+
+.experience-detail-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--fg-primary);
+}
+
+.experience-detail-company {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 16px;
+  color: var(--fg-secondary);
+}
+
+.experience-detail-close {
+  appearance: none;
+  inline-size: 24px;
+  block-size: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: var(--border-1) solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--fg-tertiary);
+  cursor: pointer;
+  transition: color var(--duration-sm) var(--ease-out), border-color var(--duration-sm)
+    var(--ease-out);
+  flex-shrink: 0;
+}
+
+.experience-detail-close:hover,
+.experience-detail-close:focus-visible {
+  color: var(--fg-primary);
+  border-color: var(--border-default);
+}
+
+.experience-detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.experience-detail-section--bordered {
+  padding-block-start: var(--space-3);
+  border-block-start: var(--border-1) solid var(--border-subtle);
+}
+
+.experience-detail-section-title {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--text-2xs);
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--fg-tertiary);
+}
+
+.experience-detail-dates {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 16px;
+  color: var(--fg-secondary);
+}
+
+.experience-detail-description {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: 20px;
+  color: var(--fg-secondary);
+}
+
+.experience-detail-stack {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.experience-detail-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-2);
+  border: var(--border-1) solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--bg-app);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  line-height: 14px;
+  color: var(--fg-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-detail-close {
+    transition: none;
+  }
+}
