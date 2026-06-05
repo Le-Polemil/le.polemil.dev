@@ -1,14 +1,20 @@
+/* ThemeToggle — iOS-style sliding switch between sun (light, left)
+   and moon (dark, right). Knob slides to the active side via
+   `translateX` ; icons stay put but their color reflects which side
+   is active. */
+
 .theme-toggle {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
-  padding: 0 var(--space-2);
+  justify-content: space-between;
+  inline-size: 60px;
   block-size: var(--size-control-sm);
+  padding: 0;
   background: var(--bg-app);
   border: var(--border-1) solid var(--border-subtle);
   border-radius: var(--radius-full);
   cursor: pointer;
-  color: var(--fg-tertiary);
   transition: border-color var(--duration-sm) var(--ease-out);
 }
 
@@ -21,44 +27,44 @@
   outline-offset: 2px;
 }
 
+/* === Icon slots — visible behind the knob === */
+.theme-toggle-icon-slot {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 50%;
+  block-size: 100%;
+  color: var(--fg-tertiary);
+  transition: color var(--duration-sm) var(--ease-out);
+  pointer-events: none;
+}
+
+.theme-toggle[data-theme-state='light'] .theme-toggle-icon-slot[data-side='left'],
+.theme-toggle[data-theme-state='dark'] .theme-toggle-icon-slot[data-side='right'] {
+  color: var(--fg-on-accent);
+}
+
+/* === Knob — slides between left (sun/light) and right (moon/dark) === */
 .theme-toggle-knob {
-  inline-size: var(--size-icon-md);
-  block-size: var(--size-icon-md);
+  position: absolute;
+  inset-block: 2px;
+  inset-inline-start: 2px;
+  inline-size: calc(50% - 2px);
   border-radius: var(--radius-full);
   background: var(--accent);
-  flex-shrink: 0;
   transition: transform var(--duration-md) var(--ease-spring);
 }
 
 .theme-toggle[data-theme-state='dark'] .theme-toggle-knob {
-  /* Slide right when in dark mode (visually represents the toggle position). */
-  transform: translateX(0);
-}
-
-.theme-toggle[data-theme-state='light'] .theme-toggle-knob {
-  transform: translateX(0);
-}
-
-.theme-toggle-icon {
-  display: inline-flex;
-  color: var(--fg-tertiary);
-  transition: color var(--duration-sm) var(--ease-out);
-}
-
-.theme-toggle[data-theme-state='dark'] .theme-toggle-sun,
-.theme-toggle[data-theme-state='light'] .theme-toggle-moon {
-  color: var(--fg-tertiary);
-}
-
-.theme-toggle[data-theme-state='light'] .theme-toggle-sun,
-.theme-toggle[data-theme-state='dark'] .theme-toggle-moon {
-  color: var(--fg-primary);
+  transform: translateX(100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .theme-toggle-knob,
   .theme-toggle,
-  .theme-toggle-icon {
+  .theme-toggle-icon-slot,
+  .theme-toggle-knob {
     transition: none;
   }
 }

@@ -1,12 +1,15 @@
 import { expect, test } from '@playwright/test';
 
 /**
- * The LangToggle React island (client:idle) writes data-hydrated="true"
- * inside its mount effect, so we can deterministically wait for the click
- * handler to be wired before asserting.
+ * LangToggle was rebuilt as an iOS-style sliding switch in #45 :
+ * a single `<button role="switch">` with `aria-checked` reflecting
+ * whether EN is active (FR = unchecked, EN = checked).
+ *
+ * `data-hydrated="true"` is set inside the React mount effect so
+ * Playwright can wait for the click handler to be wired.
  */
 async function waitForHydratedLangToggle(page: import('@playwright/test').Page) {
-  return page.waitForSelector('fieldset.lang-toggle[data-hydrated="true"]');
+  return page.waitForSelector('button.lang-toggle[data-hydrated="true"]');
 }
 
 test.describe('Lang toggle (ticket #5)', () => {
@@ -26,12 +29,14 @@ test.describe('Lang toggle (ticket #5)', () => {
       document.documentElement.dataset.lang = 'fr';
     });
     await page.reload();
-    await waitForHydratedLangToggle(page);
+    const toggle = await waitForHydratedLangToggle(page);
     await expect(page.locator('html')).toHaveAttribute('data-lang', 'fr');
+    await expect(page.locator('button.lang-toggle')).toHaveAttribute('aria-checked', 'false');
 
-    // Click "EN" → flip + persist.
-    await page.getByRole('button', { name: 'EN', exact: true }).click();
+    // Click the switch → flip to EN + persist.
+    await toggle.click();
     await expect(page.locator('html')).toHaveAttribute('data-lang', 'en');
+    await expect(page.locator('button.lang-toggle')).toHaveAttribute('aria-checked', 'true');
     await expect.poll(async () => page.evaluate(() => localStorage.getItem('lang'))).toBe('en');
 
     // Reload → still EN. The inline script in <head> applies data-lang
@@ -39,14 +44,16 @@ test.describe('Lang toggle (ticket #5)', () => {
     await page.reload();
     await waitForHydratedLangToggle(page);
     await expect(page.locator('html')).toHaveAttribute('data-lang', 'en');
+    await expect(page.locator('button.lang-toggle')).toHaveAttribute('aria-checked', 'true');
   });
 
-  test('clicking the active option is a no-op', async ({ page }) => {
+  test('switch flips both directions', async ({ page }) => {
     await page.goto('/');
-    await waitForHydratedLangToggle(page);
-    const fr = page.getByRole('button', { name: 'FR', exact: true });
-    await expect(fr).toHaveAttribute('aria-pressed', 'true');
-    await fr.click();
+    const toggle = await waitForHydratedLangToggle(page);
+    await expect(page.locator('button.lang-toggle')).toHaveAttribute('aria-checked', 'false');
+    await toggle.click();
+    await expect(page.locator('html')).toHaveAttribute('data-lang', 'en');
+    await toggle.click();
     await expect(page.locator('html')).toHaveAttribute('data-lang', 'fr');
   });
 });
